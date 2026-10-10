@@ -1,0 +1,29 @@
+% DPO in three steps: the RLHF optimum, solved for the reward, then the Bradley-Terry difference where Z(x) cancels.
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+% struck-out term (the cancel package is not in this TeX install): a node with a diagonal stroke
+\newcommand{\strike}[1]{\tikz[baseline=(s.base)]{\node[inner sep=1pt] (s) {$\displaystyle #1$}; \draw[grey500, line width=1.1pt] (s.south west) -- (s.north east);}}
+\begin{document}
+\begin{tikzpicture}
+  % ---- three equations, one per row (each row is its own node; markers on the left) ----
+  \node[font=\Large, anchor=base west, inner sep=0] (e1) at (0,0) {$
+    \pi^{*}(y\mid x) \;=\; \dfrac{1}{Z(x)}\;\pi_{\mathrm{ref}}(y\mid x)\,\exp\!\Big(\dfrac{1}{\beta}\,r(x,y)\Big)$};
+  \node[font=\Large, anchor=base west, inner sep=0] (e2) at (0,-2.6) {$
+    r(x,y) \;=\; \beta\log\dfrac{\pi^{*}(y\mid x)}{\pi_{\mathrm{ref}}(y\mid x)} \;+\; {\color{grey500}\beta\log Z(x)}$};
+  \node[font=\Large, anchor=north west, inner sep=0] (e3) at (0,-4.75) {$\begin{aligned}
+    r(x,y_w) - r(x,y_l) \;&=\; {\color{fern}\beta\log\dfrac{\pi^{*}(y_w\mid x)}{\pi_{\mathrm{ref}}(y_w\mid x)} \;-\; \beta\log\dfrac{\pi^{*}(y_l\mid x)}{\pi_{\mathrm{ref}}(y_l\mid x)}}\\[4pt]
+    &\qquad {\color{grey500} +\; \strike{\beta\log Z(x)} \;-\; \strike{\beta\log Z(x)}}
+  \end{aligned}$};
+  \node[dims, anchor=west] at ($(e3.south east)+(0.3,0.45)$) {same $x$: they cancel};
+  % ---- markers and the steps between rows ----
+  \mk{(-0.6,0.15)}{1}; \mk{(-0.6,-2.45)}{2}; \mka{($(e3.north west)+(-0.6,-0.62)$)}{3};
+  \draw[flow] (-0.6,-0.45) -- (-0.6,-1.85) node[midway, right, dims, xshift=2pt] {take logs, solve for $r$};
+  \draw[flow] (-0.6,-3.05) -- (-0.6,-4.85) node[midway, right, dims, xshift=2pt] {write the reward gap that Bradley--Terry uses};
+  % ---- notes column ----
+  \notesat{(16.4,0.9)}{6.4cm}
+  \note{1}{The RLHF objective (reward minus $\beta\cdot$KL) has this exact maximizer: the reference, reweighted by the exponentiated reward. $Z(x)$ normalizes it, and it sums over every possible response, so it cannot be computed.}
+  \note{2}{Any reward can be written through the policy that is optimal for it, up to the term $\beta\log Z(x)$, which depends on $x$ only.}
+  \notea{3}{Bradley--Terry uses only the reward gap, so $\beta\log Z(x)$ cancels. Preferences now depend on the policy alone: replace $\pi^{*}$ by the model $\pi_\theta$ and fit it to the comparisons. That is DPO.}
+  \symbols{$\pi^{*}$ & the optimal policy for reward $r$ \\ $Z(x)$ & $\sum_{y}\pi_{\mathrm{ref}}(y\mid x)\,e^{r(x,y)/\beta}$ \\ $y_w,\ y_l$ & preferred, rejected response}
+\end{tikzpicture}
+\end{document}

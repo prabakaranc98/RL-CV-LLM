@@ -1,0 +1,35 @@
+% The SwiGLU feed-forward sublayer of Qwen3-0.6B (bottom -> top).
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, y=0.9cm]
+  \node[tname] (x) at (1.7,0) {$h$ \;\textcolor{grey500}{\footnotesize ($T\times 1024$, after RMSNorm)}};
+  \node[junction] (j) at (1.7,0.75) {};
+  \draw[wire] (x.north) -- (j);
+  \node[expand, minimum width=2.6cm, minimum height=0.95cm] (wg) at (0,1.95) {$W_{\text{gate}}$\\[-2pt]{\scriptsize $1024\to3072$}};
+  \node[expand, minimum width=2.6cm, minimum height=0.95cm] (wu) at (3.4,1.95) {$W_{\text{up}}$\\[-2pt]{\scriptsize $1024\to3072$}};
+  \draw[flow] (j) -| (wg.south);
+  \draw[flow] (j) -| (wu.south);
+  \node[silubox, minimum width=2.2cm, minimum height=0.62cm] (act) at (0,3.35) {\hspace{1.3em}SiLU};
+  \draw[flow] (wg) -- (act);
+  \node[circle, draw=fern, line width=1.2pt, fill=ferntint, inner sep=0pt, minimum size=0.52cm, font=\small] (g) at (1.7,4.65) {$\otimes$};
+  \draw[flow] (act.north) |- (g.west);
+  \draw[flow] (wu.north) |- (g.east);
+  \node[contract, minimum width=2.8cm, minimum height=0.95cm] (wd) at (1.7,6.0) {$W_{\text{down}}$\\[-2pt]{\scriptsize $3072\to1024$}};
+  \draw[flow] (g) -- (wd);
+  \node[note] (out) at (1.7,7.05) {added to the residual stream ($T\times 1024$)};
+  \draw[flow] (wd.north) -- (out.south);
+
+  \mk{($(wg.west)+(-0.45,0)$)}{1};
+  \mk{($(act.west)+(-0.4,0)$)}{2};
+  \mka{($(g.east)+(0.45,0.3)$)}{3};
+  \mk{($(wd.west)+(-0.45,0)$)}{4};
+
+  \notesat{(6.0,7.5)}{7.0cm}
+  \note{1}{\textbf{Two expansions}: $W_{\text{gate}}$ and $W_{\text{up}}$ each map 1,024 numbers to 3,072.};
+  \note{2}{\textbf{SiLU}: $\operatorname{SiLU}(z) = z\,\sigma(z)$, a smooth version of ReLU.};
+  \notea{3}{\textbf{Gate}: an elementwise product. The SiLU branch scales each of the 3,072 units of the $W_{\text{up}}$ branch.};
+  \note{4}{\textbf{Back to the stream}: $W_{\text{down}}$ maps 3,072 back to 1,024. The three matrices hold 9.4M weights per layer.};
+  \symbols{$\sigma$ & logistic function $1/(1+e^{-z})$ \\ $\otimes$ & elementwise product \\ 3072 & feed-forward width};
+\end{tikzpicture}
+\end{document}

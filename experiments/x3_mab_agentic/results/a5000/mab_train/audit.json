@@ -1,0 +1,181 @@
+{
+ "test": {
+  "task1": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "found": 28,
+    "not-found": 2
+   }
+  },
+  "task2": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 30
+   }
+  },
+  "task3": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 30
+   }
+  },
+  "task4": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "missing": 19,
+    "value": 11
+   }
+  },
+  "task5": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 28,
+   "labels": {
+    "missing": 16,
+    "normal": 12,
+    "order": 2
+   }
+  },
+  "task6": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "value": 28,
+    "missing": 2
+   }
+  },
+  "task7": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "value": 30
+   }
+  },
+  "task8": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 30
+   }
+  },
+  "task9": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 29,
+   "labels": {
+    "normal": 29,
+    "order": 1
+   }
+  },
+  "task10": {
+   "n": 30,
+   "oracle": 30,
+   "shortcut": 13,
+   "labels": {
+    "missing": 13,
+    "recent": 13,
+    "old": 4
+   }
+  }
+ },
+ "train": {
+  "task1": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "found": 554,
+    "not-found": 43
+   }
+  },
+  "task2": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 597
+   }
+  },
+  "task3": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 597
+   }
+  },
+  "task4": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "missing": 596,
+    "value": 1
+   }
+  },
+  "task5": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 597,
+   "labels": {
+    "missing": 596,
+    "normal": 1
+   }
+  },
+  "task6": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "missing": 595,
+    "value": 2
+   }
+  },
+  "task7": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "missing": 595,
+    "value": 2
+   }
+  },
+  "task8": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 0,
+   "labels": {
+    "n/a": 597
+   }
+  },
+  "task9": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 597,
+   "labels": {
+    "missing": 595,
+    "normal": 2
+   }
+  },
+  "task10": {
+   "n": 597,
+   "oracle": 597,
+   "shortcut": 1,
+   "labels": {
+    "missing": 596,
+    "recent": 1
+   }
+  }
+ }
+}

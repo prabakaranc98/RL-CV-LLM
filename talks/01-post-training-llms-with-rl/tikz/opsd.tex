@@ -1,0 +1,29 @@
+% On-policy self-distillation: one model in two contexts. Gradient flows only into the student.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+  % student lane
+  \node[block, minimum width=2.2cm, minimum height=1.0cm] (xs) at (0,1.6) {problem $x$};
+  \node[blocka, minimum width=2.9cm, minimum height=1.0cm] (stu) at (3.5,1.6) {\textbf{student} $\pi_\theta$\\[-1pt]{\footnotesize being trained}};
+  \node[block, minimum width=3.0cm, minimum height=1.0cm] (yh) at (7.4,1.6) {response $\hat y$\\[-1pt]{\footnotesize one sample}};
+  \draw[flow] (xs) -- (stu); \draw[flow] (stu) -- (yh);
+  % teacher lane
+  \node[block, minimum width=3.0cm, minimum height=1.0cm] (tin) at (7.4,-1.3) {$x$, solution $y^\star$,\\and $\hat y$};
+  \node[frozen, minimum width=3.3cm, minimum height=1.0cm] (tea) at (11.3,-1.3) {\textbf{teacher} $\pi_{\mathrm{ref}}$\\[-1pt]{\footnotesize frozen initial model}};
+  \draw[flow] (yh) -- node[right, dims] {copied in} (tin);
+  \draw[flow] (tin) -- (tea);
+  % KL box
+  \node[block, draw=ink, line width=1.0pt, minimum width=3.6cm, minimum height=2.4cm] (kl) at (15.4,0.15) {};
+  \node[font=\small\bfseries, anchor=north] at ($(kl.north)+(0,-0.08)$) {each position $t$};
+  \foreach \h [count=\k from 0] in {0.15,0.55,0.25,0.10} \fill[fern] ({14.15+\k*0.25},-0.45) rectangle ++(0.18,\h);
+  \foreach \h [count=\k from 0] in {0.10,0.75,0.12,0.05} \fill[grey500] ({15.65+\k*0.25},-0.45) rectangle ++(0.18,\h);
+  \node[dims] at (14.5,-0.72) {student};
+  \node[dims] at (16.0,-0.72) {teacher};
+  \node[font=\small] at (15.4,0.45) {$\mathrm{KL}(\text{teacher}\,\|\,\text{student})$};
+  \draw[flow] (yh.east) -- node[above, dims] {student's distributions} (14.4,1.6) -- (14.4,1.35);
+  \draw[flow] (tea.east) -| (kl.south);
+  % gradient back to the student
+  \draw[flowa] (16.4,1.35) -- (16.4,2.75) -| node[pos=0.25, above, accentnote] {gradient flows into the student only} (stu.north);
+\end{tikzpicture}
+\end{document}

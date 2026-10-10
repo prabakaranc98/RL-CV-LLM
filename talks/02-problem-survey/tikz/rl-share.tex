@@ -1,0 +1,14 @@
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+\begin{axis}[surveyaxis, width=11cm, height=6.4cm, xmin=2025, xmax=2026, xtick={2025,2026}, xticklabels={2025,2026}, ymin=0, ymax=32, ytick={0,10,20,30}, yticklabel={\pgfmathprintnumber{\tick}\%}, enlarge x limits={abs=0.8}, ylabel={share of papers using RL post-training}]
+\addplot[cvpr, line width=2pt, mark=*, mark size=2.8pt, mark options={fill=cvpr, draw=white, line width=0.7pt}] coordinates {(2025,5.44) (2026,26.86)};
+\node[anchor=south east, font=\footnotesize, text=grey700] at (axis cs:2025,5.44) {5\% (21 of 386)\,};
+\node[anchor=west, font=\footnotesize, text=grey700, align=left] at (axis cs:2026,26.86) {\,\textbf{27\%} (228 of 849)\\\,CVPR (language-model papers)};
+\addplot[acl, line width=2pt, mark=*, mark size=2.8pt, mark options={fill=acl, draw=white, line width=0.7pt}] coordinates {(2025,4.36) (2026,17.38)};
+\node[anchor=north east, font=\footnotesize, text=grey700] at (axis cs:2025,4.36) {4\% (74 of 1699)\,};
+\node[anchor=west, font=\footnotesize, text=grey700, align=left] at (axis cs:2026,17.38) {\,\textbf{17\%} (399 of 2296)\\\,ACL (all main papers)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

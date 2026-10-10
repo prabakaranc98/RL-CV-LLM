@@ -1,0 +1,22 @@
+% What GRPO keeps and what it removes, compared with PPO-based RLHF.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, m/.style={block, minimum width=4.6cm, minimum height=0.85cm}]
+  \node[font=\normalsize\bfseries, text=ink] at (0,0.9) {PPO (RLHF)};
+  \node[m, accent, fill=ferntint] (p1) at (0,0) {policy $\pi_\theta$ \textcolor{grey500}{\footnotesize (trained)}};
+  \node[m] (p2) at (0,-1.1) {critic $V_\psi$ \textcolor{grey500}{\footnotesize (trained)}};
+  \node[m, fill=grey100] (p3) at (0,-2.2) {reward model $r_\phi$ \textcolor{grey500}{\footnotesize (frozen)}};
+  \node[m, fill=grey100] (p4) at (0,-3.3) {reference $\pi_{\mathrm{ref}}$ \textcolor{grey500}{\footnotesize (frozen)}};
+  \node[note, text width=4.6cm, anchor=north] at (0,-4.0) {advantage per token from the critic (GAE)};
+
+  \node[font=\normalsize\bfseries, text=ink] at (8.4,0.9) {GRPO};
+  \node[m, accent, fill=ferntint] (g1) at (8.4,0) {policy $\pi_\theta$ \textcolor{grey500}{\footnotesize (trained)}};
+  \node[m, draw=grey400, dashed, text=grey400] (g2) at (8.4,-1.1) {no critic};
+  \node[m, fill=grey100] (g3) at (8.4,-2.2) {reward model \emph{or} a checker};
+  \node[m, fill=grey100] (g4) at (8.4,-3.3) {reference $\pi_{\mathrm{ref}}$ \textcolor{grey500}{\footnotesize (optional)}};
+  \node[note, text width=4.6cm, anchor=north] at (8.4,-4.0) {advantage per response from $G$ samples of the same prompt: $\hat A_i = (r_i - \mathrm{mean})/\mathrm{std}$};
+
+  \draw[flowa, line width=1.1pt] (p2.east) -- node[above, accentnote, align=center] {replaced by\\group statistics} (g2.west);
+\end{tikzpicture}
+\end{document}

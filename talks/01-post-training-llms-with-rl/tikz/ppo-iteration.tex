@@ -1,0 +1,15 @@
+% One PPO iteration for an LLM: a loop of six steps (top row left -> right, bottom row right -> left).
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, stp/.style={block, minimum width=4.6cm, minimum height=1.55cm, text width=4.3cm, align=left, inner sep=6pt}]
+  \node[stp] (s1) at (0,0)    {\textbf{1 \; Generate}\\{\footnotesize $\pi_\theta$ samples a response $y$ per prompt $x$; keep $\log\pi_{\mathrm{old}}(y_t\mid s_t)$}};
+  \node[stp, fill=grey100] (s2) at (5.4,0)  {\textbf{2 \; Score}\\{\footnotesize the reward model gives $r_\phi(x,y)$, one number per response}};
+  \node[stp, fill=grey100] (s3) at (10.8,0) {\textbf{3 \; KL penalty}\\{\footnotesize per-token reward\\$-\beta\,(\log\pi_{\mathrm{old}} - \log\pi_{\mathrm{ref}})$,\\plus $r_\phi$ at the last token}};
+  \node[stp] (s4) at (10.8,-2.6) {\textbf{4 \; Values}\\{\footnotesize the critic predicts $V_\psi(s_t)$ for every prefix of $y$}};
+  \node[stp] (s5) at (5.4,-2.6)  {\textbf{5 \; Advantages}\\{\footnotesize GAE combines rewards and values into $\hat A_t$ for every token}};
+  \node[stp, accent, fill=ferntint] (s6) at (0,-2.6) {\textbf{6 \; Update}\\{\footnotesize a few epochs of minibatch steps: $L^{\mathrm{CLIP}}$ for $\pi_\theta$, squared error for $V_\psi$}};
+  \draw[flow] (s1) -- (s2); \draw[flow] (s2) -- (s3); \draw[flow] (s3) -- (s4);
+  \draw[flow] (s4) -- (s5); \draw[flow] (s5) -- (s6); \draw[flowa] (s6) -- node[left, dims] {next batch} (s1);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,23 @@
+panel,task,count,pct,n
+CVPR 2026 (vision RL papers),image / video generation,45,21.4,210
+CVPR 2026 (vision RL papers),embodied / driving / VLA,17,8.1,210
+CVPR 2026 (vision RL papers),GUI / agents / tools,16,7.6,210
+CVPR 2026 (vision RL papers),video / temporal,34,16.2,210
+CVPR 2026 (vision RL papers),spatial / 3D,17,8.1,210
+CVPR 2026 (vision RL papers),OCR / documents / charts,22,10.5,210
+CVPR 2026 (vision RL papers),visual math / geometry,9,4.3,210
+CVPR 2026 (vision RL papers),"perception: grounding, detection, counting",29,13.8,210
+CVPR 2026 (vision RL papers),hallucination / safety,6,2.9,210
+CVPR 2026 (vision RL papers),visual-token efficiency,2,1.0,210
+CVPR 2026 (vision RL papers),general reasoning / other,13,6.2,210
+ACL 2026 (text-only RL papers),code / SQL,24,7.1,336
+ACL 2026 (text-only RL papers),agents / tools / search,85,25.3,336
+ACL 2026 (text-only RL papers),math,56,16.7,336
+ACL 2026 (text-only RL papers),QA / retrieval / RAG,20,6.0,336
+ACL 2026 (text-only RL papers),safety / hallucination / factuality,25,7.4,336
+ACL 2026 (text-only RL papers),"reasoning efficiency (length, overthinking)",12,3.6,336
+ACL 2026 (text-only RL papers),instruction following / alignment,38,11.3,336
+ACL 2026 (text-only RL papers),multilingual / translation,13,3.9,336
+ACL 2026 (text-only RL papers),dialogue / social / persona,11,3.3,336
+ACL 2026 (text-only RL papers),"domain: medical, legal, science",7,2.1,336
+ACL 2026 (text-only RL papers),general reasoning / other,45,13.4,336

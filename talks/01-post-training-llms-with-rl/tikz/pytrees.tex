@@ -1,0 +1,29 @@
+% Model parameters as a pytree; the post-training cast as copies of one structure.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, leaf/.style={block, minimum width=2.6cm, minimum height=0.6cm, font=\footnotesize, fill=grey100}]
+  \node[block, minimum width=2.0cm] (root) at (0,0) {\texttt{params}};
+  \node[leaf] (emb) at (3.4,1.4) {\texttt{embed} $151936\times1024$};
+  \node[leaf] (lay) at (3.4,0) {\texttt{layers}[0..27]};
+  \node[leaf] (fn) at (3.4,-1.4) {\texttt{final\_norm} $1024$};
+  \draw[flow] (root.east) -- ++(0.35,0) |- (emb.west);
+  \draw[flow] (root.east) -- (lay.west);
+  \draw[flow] (root.east) -- ++(0.35,0) |- (fn.west);
+  \node[leaf, minimum width=2.4cm] (att) at (7.0,0.75) {\texttt{attn}: $W_Q, W_K, W_V, W_O$};
+  \node[leaf, minimum width=2.4cm] (mlp) at (7.0,-0.75) {\texttt{mlp}: $W_{\text{gate}}, W_{\text{up}}, W_{\text{down}}$};
+  \draw[flow] (lay.east) -- ++(0.3,0) |- (att.west);
+  \draw[flow] (lay.east) -- ++(0.3,0) |- (mlp.west);
+  % the cast
+  \node[font=\small\bfseries, anchor=west] at (9.6,2.1) {the same structure, used four ways};
+  \node[blocka, minimum width=4.6cm, anchor=west] (p) at (9.6,1.2) {$\theta$: policy, \textbf{differentiated}};
+  \node[block, fill=grey100, minimum width=4.6cm, anchor=west] (r) at (9.6,0.2) {$\theta_{\mathrm{ref}}$: reference, a frozen copy};
+  \node[block, fill=grey100, minimum width=4.6cm, anchor=west] (t) at (9.6,-0.8) {$\theta_T$: teacher (OPD), another model};
+  \node[block, minimum width=4.6cm, anchor=west, draw=grey400, dashed] (o) at (9.6,-1.8) {$\pi_{\mathrm{old}}$: just saved log-probs};
+  \mka{($(p.east)+(0.35,0)$)}{1};
+  \mk{($(o.east)+(0.35,0)$)}{2};
+  \notesat{(15.0,2.3)}{5.4cm}
+  \notea{1}{\textbf{Only $\theta$ gets gradients}: \texttt{jax.grad} differentiates the loss with respect to its first argument; other pytrees are plain inputs.};
+  \note{2}{\textbf{No copy for $\pi_{\mathrm{old}}$}: the log-probs recorded at sampling time are enough for the ratio $\rho_t$.};
+\end{tikzpicture}
+\end{document}

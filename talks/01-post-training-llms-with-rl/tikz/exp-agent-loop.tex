@@ -1,0 +1,35 @@
+% The agentic RL loop on MedAgentBench: vLLM rolls out multi-turn episodes against the FHIR environment, the grader
+% scores them, JAX updates the LoRA weights, vLLM reloads them; held-out evaluation every 5 steps.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+  % ---- the loop ----
+  \node[frozen, minimum width=2.5cm, text width=2.3cm] (tasks) at (0,0) {tasks\\{\footnotesize 8 per step, 66 train patients}};
+  \node[block, minimum width=2.9cm, text width=2.7cm] (vllm) at (3.9,0) {rollouts: vLLM\\{\footnotesize policy at $T{=}1$,\\8 per task}};
+  \node[block, minimum width=2.6cm, text width=2.4cm] (eps) at (7.75,0) {episodes\\{\footnotesize $8\times 8$, token in / out}};
+  \node[frozen, minimum width=3.9cm, text width=3.7cm] (reward) at (11.95,0)
+    {reward\\{\footnotesize official grader + lookup gate; partial credit only if it finishes}};
+  \node[block, minimum width=3.3cm, text width=3.1cm] (loss) at (16.25,0) {loss\\{\footnotesize $-A_i\cdot$ mean $\log\pi_\theta$ over the model's tokens}};
+  \node[blocka, minimum width=2.9cm, text width=2.7cm] (policy) at (20.2,0) {policy Qwen3-0.6B\\{\footnotesize LoRA $A, B$ (JAX)}};
+  \draw[flow] (tasks) -- (vllm);
+  \draw[flow] (vllm) -- (eps);
+  \draw[flow] (eps) -- (reward);
+  \draw[flow] (reward) -- (loss);
+  \draw[flowa] (loss) -- (policy);
+  % ---- the environment, turn by turn ----
+  \node[frozen, minimum width=5.0cm, text width=4.8cm] (env) at (3.9,3.0)
+    {MedAgentBench environment\\{\footnotesize FHIR server; GET returns the record, POST is checked, FINISH ends; $\le 8$ turns}};
+  \draw[flow] ($(vllm.north)+(-0.55,0)$) -- node[left, note] {GET / POST / FINISH} ($(env.south)+(-0.55,0)$);
+  \draw[flow] ($(env.south)+(0.55,0)$) -- node[right, note] {reply, as a user turn} ($(vllm.north)+(0.55,0)$);
+  % ---- weight sync back to the sampler ----
+  \draw[flowa] (policy.south) -- ++(0,-2.15) -| node[pos=0.25, below, accentnote]
+    {every step: export $W+\tfrac{\alpha}{r}AB$, vLLM reloads the weights} (vllm.south);
+  % ---- evaluation path ----
+  \node[block, minimum width=4.2cm, text width=4.0cm] (heldout) at (16.25,3.0) {held-out evaluation\\{\footnotesize every 5 steps: 92 tasks of 32 unseen patients, greedy}};
+  \draw[flow] (policy.north) |- (heldout.east);
+  % ---- notes under the boxes ----
+  \node[note, anchor=north, text width=3.7cm, align=center] at ($(reward.south)+(0,-0.12)$) {$A_i=(r_i-\bar r)/\sigma$ within\\a task's 8 episodes};
+  \node[note, anchor=north, text width=3.1cm, align=center] at ($(loss.south)+(0,-0.12)$) {environment tokens\\masked out};
+\end{tikzpicture}
+\end{document}

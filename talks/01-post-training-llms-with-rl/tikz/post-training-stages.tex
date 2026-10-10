@@ -1,0 +1,27 @@
+% The common post-training pipeline, bottom -> top. Stage names and signals; sources in the slide footer.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, y=0.75cm, block/.append style={minimum width=5.4cm, minimum height=0.95cm}]
+  \node[block, fill=grey100] (base) at (0,0) {\textbf{pretrained base model}\\[-1pt]{\footnotesize predicts the next token of web-scale text}};
+  \node[block] (sft) at (0,2.1) {\textbf{supervised fine-tuning}\\[-1pt]{\footnotesize signal: example responses}};
+  \node[block] (pref) at (0,4.2) {\textbf{preference tuning}\\[-1pt]{\footnotesize signal: which of two responses is better}};
+  \node[block] (rlvr) at (0,6.3) {\textbf{RL with verifiable rewards}\\[-1pt]{\footnotesize signal: a program that checks the answer}};
+  \node[block] (dist) at (0,8.4) {\textbf{distillation}\\[-1pt]{\footnotesize signal: a stronger model's token probabilities}};
+  \node[block, draw=ink, line width=1.1pt] (final) at (0,10.5) {\textbf{post-trained model}};
+  \foreach \a/\b in {base/sft, sft/pref, pref/rlvr, rlvr/dist, dist/final} \draw[flow] (\a) -- (\b);
+  % this talk
+  \draw[fern, line width=1.1pt] (3.05,3.55) -- (3.25,3.55) -- (3.25,9.05) -- (3.05,9.05);
+  \node[font=\small\bfseries, text=ferndark, anchor=west] at (3.35,6.3) {this talk};
+  \mk{($(sft.west)+(-0.4,0)$)}{1};
+  \mk{($(pref.west)+(-0.4,0)$)}{2};
+  \mk{($(rlvr.west)+(-0.4,0)$)}{3};
+  \mk{($(dist.west)+(-0.4,0)$)}{4};
+  \notesat{(5.4,11.0)}{7.4cm}
+  \note{1}{\textbf{Supervised fine-tuning (SFT)}: imitate written examples. Teaches the format of a good answer.};
+  \note{2}{\textbf{Preference tuning}: learn from comparisons, through a reward model and RL (RLHF with PPO), or directly (DPO).};
+  \note{3}{\textbf{RL with verifiable rewards (RLVR)}: sample answers, check them, reinforce the correct ones (GRPO).};
+  \note{4}{\textbf{Distillation}: a small model learns from a larger one, best on its own samples (on-policy distillation).};
+  \node[note, anchor=north west, text width=7.9cm] at ($(note4base.south west)+(0,-0.5)$) {Labs reorder, repeat and mix these stages; the next slide shows what five documented recipes actually do.};
+\end{tikzpicture}
+\end{document}

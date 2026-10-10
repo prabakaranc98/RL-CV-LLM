@@ -1,0 +1,80 @@
+% Four ways to spend more computation on one problem at inference time. Values are illustrative.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+    smp/.style={block, minimum width=1.75cm, minimum height=0.46cm, font=\footnotesize, inner sep=2pt},
+    smpa/.style={smp, accent, fill=ferntint},
+    smpg/.style={smp, draw=grey300, text=grey400},
+    res/.style={block, minimum width=1.6cm, minimum height=0.6cm, font=\footnotesize, align=center, inner sep=3pt},
+    xb/.style={block, minimum width=0.6cm, minimum height=0.6cm, font=\small, inner sep=2pt},
+    frame/.style={draw=grey300, line width=0.6pt, rounded corners=5pt},
+    ptitle/.style={font=\small\bfseries, anchor=north west, inner sep=0}]
+  % ---------- panel frames ----------
+  \draw[frame] (0,0) rectangle (6.1,-3.9);      \draw[frame] (6.4,0) rectangle (12.5,-3.9);
+  \draw[frame] (0,-4.2) rectangle (6.1,-8.1);   \draw[frame, draw=fern, line width=1pt] (6.4,-4.2) rectangle (12.5,-8.1);
+  \node[ptitle] at (0.25,-0.25) {Majority vote};
+  \node[ptitle] at (6.65,-0.25) {Best of $N$ with a verifier};
+  \node[ptitle] at (0.25,-4.45) {Search over steps};
+  \node[ptitle, text=ferndark] at (6.65,-4.45) {Think longer, in one sample};
+  \mk{(5.75,-0.4)}{1}; \mk{(12.15,-0.4)}{2}; \mk{(5.75,-4.6)}{3}; \mka{(12.15,-4.6)}{4};
+  % ---------- 1: majority vote ----------
+  \node[xb] (x1) at (0.6,-2.3) {$x$};
+  \foreach \i/\a [count=\k] in {1/9, 2/9, 3/7, 4/9} \node[smp] (a\k) at (2.45,{-1.25-0.7*(\k-1)}) {answer $\a$};
+  \coordinate (t1) at (1.3,-2.3);
+  \draw[wire] (x1.east) -- (t1); \node[junction] at (t1) {};
+  \draw[wire] (t1 |- a1.west) -- (t1 |- a4.west);
+  \foreach \k in {1,...,4} \draw[flow] (t1 |- a\k.west) -- (a\k.west);
+  \coordinate (m1) at (3.65,-2.3);
+  \draw[wire] (m1 |- a1.east) -- (m1 |- a4.east);
+  \foreach \k in {1,...,4} \draw[wire] (a\k.east) -- (m1 |- a\k.east);
+  \node[junction] at (m1) {};
+  \node[res] (r1) at (4.85,-2.3) {most common:\\$9$ (3 of 4)};
+  \draw[flow] (m1) -- (r1.west);
+  % ---------- 2: best of N ----------
+  \node[xb] (x2) at (7.0,-2.3) {$x$};
+  \foreach \s [count=\k] in {0.31, 0.87, 0.42, 0.12} {
+    \ifnum\k=2 \node[smpa] (b\k) at (8.85,{-1.25-0.7*(\k-1)}) {$y_{\k}$: score $\s$};
+    \else \node[smp] (b\k) at (8.85,{-1.25-0.7*(\k-1)}) {$y_{\k}$: score $\s$};\fi}
+  \coordinate (t2) at (7.7,-2.3);
+  \draw[wire] (x2.east) -- (t2); \node[junction] at (t2) {};
+  \draw[wire] (t2 |- b1.west) -- (t2 |- b4.west);
+  \foreach \k in {1,...,4} \draw[flow] (t2 |- b\k.west) -- (b\k.west);
+  \node[res] (r2) at (11.25,-1.95) {keep $y_2$};
+  \draw[flowa] (b2.east) -- (b2.east -| r2.west);
+  % ---------- 3: search over steps ----------
+  \node[xb] (x3) at (0.6,-6.35) {$x$};
+  \node[smpa, minimum width=1.2cm] (s11) at (2.2,-5.45) {step $0.7$};
+  \node[smp, minimum width=1.2cm]  (s12) at (2.2,-6.35) {step $0.4$};
+  \node[smpg, minimum width=1.2cm] (s13) at (2.2,-7.25) {step $0.2$};
+  \coordinate (t3) at (1.25,-6.35);
+  \draw[wire] (x3.east) -- (t3); \node[junction] at (t3) {};
+  \draw[wire] (t3 |- s11.west) -- (t3 |- s13.west);
+  \foreach \k in {11,12,13} \draw[flow] (t3 |- s\k.west) -- (s\k.west);
+  \node[smpa, minimum width=1.2cm] (s21) at (3.85,-5.45) {step $0.8$};
+  \node[smpg, minimum width=1.2cm] (s22) at (3.85,-6.35) {step $0.3$};
+  \coordinate (t4) at (2.98,-5.45);
+  \draw[wire] (s11.east) -- (t4); \node[junction] at (t4) {};
+  \draw[wire] (t4) -- (t4 |- s22.west);
+  \draw[flow] (t4) -- (s21.west); \draw[flow] (t4 |- s22.west) -- (s22.west);
+  \node[res, minimum width=1.1cm] (r3) at (5.35,-5.45) {answer};
+  \draw[flowa] (s21.east) -- (r3.west);
+  \node[dims, anchor=west] at (3.2,-7.25) {grey: pruned};
+  % ---------- 4: think longer ----------
+  \node[xb] (x4) at (6.95,-5.6) {$x$};
+  \node[smpa, minimum width=0.85cm] (c1) at (8.0,-5.6) {step};
+  \node[smpa, minimum width=1.6cm] (c2) at (9.55,-5.6) {wait, check};
+  \node[smpa, minimum width=0.85cm] (c3) at (11.05,-5.6) {step};
+  \draw[flowa] (x4) -- (c1); \draw[flowa] (c1) -- (c2); \draw[flowa] (c2) -- (c3);
+  \node[res, minimum width=1.1cm] (r4) at (11.05,-6.85) {answer};
+  \draw[flowa] (c3) -- (r4);
+  \node[dims, anchor=north west, align=left] at (6.65,-6.35) {one long chain:\\explore, check, revise};
+  % ---------- notes ----------
+  \notesat{(13.2,0.1)}{6.0cm}
+  \note{1}{Sample several reasoning paths; return the most common final answer (self-consistency). No extra model.}
+  \note{2}{A trained verifier scores each complete solution; keep the best.}
+  \note{3}{A process reward model scores each step; keep expanding the most promising partial solutions.}
+  \notea{4}{Or train the model, with RL, to spend its tokens on one long chain that explores, checks and revises: thinking longer instead of sampling more.}
+  \node[dims, anchor=north west] at ($(\lastnote.south west)+(0,-0.6)$) {scores and answers: illustrative};
+\end{tikzpicture}
+\end{document}

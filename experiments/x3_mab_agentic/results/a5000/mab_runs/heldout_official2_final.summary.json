@@ -1,0 +1,89 @@
+{
+ "args": {
+  "mab": "/root/MedAgentBench",
+  "tasks": "/root/mab_train/heldout_official.json",
+  "name": "heldout_official2_final",
+  "out": "/root/mab_runs",
+  "url": "http://localhost:8031/v1/chat/completions",
+  "model": "policy",
+  "samples": 1,
+  "temperature": 0.0,
+  "top_p": null,
+  "top_k": null,
+  "max_tokens": 2048,
+  "max_reply_chars": null,
+  "workers": 16
+ },
+ "by_type": {
+  "task1": {
+   "tasks": 9,
+   "official_mean": 8.0,
+   "reward_mean": 8.0,
+   "reward_any": 8,
+   "get_ok_any": 9
+  },
+  "task2": {
+   "tasks": 9,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 9
+  },
+  "task3": {
+   "tasks": 9,
+   "official_mean": 9.0,
+   "reward_mean": 9.0,
+   "reward_any": 9,
+   "get_ok_any": 0
+  },
+  "task4": {
+   "tasks": 9,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 9
+  },
+  "task5": {
+   "tasks": 10,
+   "official_mean": 8.0,
+   "reward_mean": 8.0,
+   "reward_any": 8,
+   "get_ok_any": 10
+  },
+  "task6": {
+   "tasks": 10,
+   "official_mean": 2.0,
+   "reward_mean": 2.0,
+   "reward_any": 2,
+   "get_ok_any": 10
+  },
+  "task7": {
+   "tasks": 9,
+   "official_mean": 2.0,
+   "reward_mean": 2.0,
+   "reward_any": 2,
+   "get_ok_any": 9
+  },
+  "task8": {
+   "tasks": 9,
+   "official_mean": 9.0,
+   "reward_mean": 9.0,
+   "reward_any": 9,
+   "get_ok_any": 0
+  },
+  "task9": {
+   "tasks": 9,
+   "official_mean": 2.0,
+   "reward_mean": 2.0,
+   "reward_any": 2,
+   "get_ok_any": 9
+  },
+  "task10": {
+   "tasks": 9,
+   "official_mean": 3.0,
+   "reward_mean": 3.0,
+   "reward_any": 3,
+   "get_ok_any": 9
+  }
+ }
+}

@@ -1,0 +1,14 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{K}{\mathrm{KL}\big(\pi_\theta \,\|\, \pi_{\mathrm{ref}}\big)} \;=\;
+  \tm{E}{\mathbb{E}_{y\sim\pi_\theta(\cdot\mid x)}}\Big[\,\tm{p}{\color{fern}\log \pi_\theta(y\mid x)} \;-\; \tm{q}{\color{grey500}\log \pi_{\mathrm{ref}}(y\mid x)}\,\Big]
+$};
+\ann{K}{a}{1}{0}{how far the trained policy\\has moved from the reference};
+\anna{p}{a}{1}{0}{log-probability of the response\\under the policy being trained};
+\ann{E}{b}{1}{0}{average over responses sampled\\from the policy being trained};
+\ann{q}{b}{1}{0.3}{log-probability under the frozen\\reference (the starting model)};
+\end{tikzpicture}
+\end{document}

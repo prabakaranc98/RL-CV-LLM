@@ -1,0 +1,34 @@
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+\begin{axis}[at={(0cm,0)}, xbar, bar width=7pt, width=6.6cm, height=7.6cm, axis lines=left, axis line style={grey400}, xmin=0, xmax=30, xtick=\empty, xticklabels={}, axis x line=none, axis line style={grey400, -}, ytick={0,...,10}, yticklabels={{visual-token efficiency},{hallucination / safety},{visual math / geometry},{general reasoning / other},{GUI / agents / tools},{embodied / driving / VLA},{spatial / 3D},{OCR / documents / charts},{perception: grounding{,} detection{,} counting},{video / temporal},{image / video generation}}, y tick label style={font=\footnotesize, text=grey700, align=right}, ytick style={draw=none}, enlarge y limits=0.06, clip=false, title={CVPR 2026: RL papers on vision (n = 210)}, title style={font=\small\bfseries, text=ink, align=center}]
+\addplot[fill=cvpr, draw=none, rounded corners=1pt] coordinates {(1.0,0) (2.9,1) (4.3,2) (6.2,3) (7.6,4) (8.1,5) (8.1,6) (10.5,7) (13.8,8) (16.2,9) (21.4,10)};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:1.0,0) {\,1\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:2.9,1) {\,3\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:4.3,2) {\,4\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:6.2,3) {\,6\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:7.6,4) {\,8\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:8.1,5) {\,8\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:8.1,6) {\,8\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:10.5,7) {\,10\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:13.8,8) {\,14\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:16.2,9) {\,16\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:21.4,10) {\,21\%};
+\end{axis}
+\begin{axis}[at={(11.6cm,0)}, xbar, bar width=7pt, width=6.6cm, height=7.6cm, axis lines=left, axis line style={grey400}, xmin=0, xmax=30, xtick=\empty, xticklabels={}, axis x line=none, axis line style={grey400, -}, ytick={0,...,10}, yticklabels={{domain: medical{,} legal{,} science},{dialogue / social / persona},{reasoning efficiency (length{,} overthinking)},{multilingual / translation},{QA / retrieval / RAG},{code / SQL},{safety / hallucination / factuality},{instruction following / alignment},{general reasoning / other},{math},{agents / tools / search}}, y tick label style={font=\footnotesize, text=grey700, align=right}, ytick style={draw=none}, enlarge y limits=0.06, clip=false, title={ACL 2026: text-only RL papers (n = 336)}, title style={font=\small\bfseries, text=ink, align=center}]
+\addplot[fill=acl, draw=none, rounded corners=1pt] coordinates {(2.1,0) (3.3,1) (3.6,2) (3.9,3) (6.0,4) (7.1,5) (7.4,6) (11.3,7) (13.4,8) (16.7,9) (25.3,10)};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:2.1,0) {\,2\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:3.3,1) {\,3\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:3.6,2) {\,4\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:3.9,3) {\,4\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:6.0,4) {\,6\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:7.1,5) {\,7\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:7.4,6) {\,7\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:11.3,7) {\,11\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:13.4,8) {\,13\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:16.7,9) {\,17\%};
+\node[anchor=west, font=\footnotesize, text=grey700] at (axis cs:25.3,10) {\,25\%};
+\end{axis}
+\end{tikzpicture}
+\end{document}

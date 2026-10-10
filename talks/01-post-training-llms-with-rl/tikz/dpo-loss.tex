@@ -1,0 +1,18 @@
+% The DPO loss, annotated term by term (annotation protocol: fixed label rows, straight leaders).
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\Large, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{L}{\mathcal{L}_{\mathrm{DPO}}(\theta)} \;=\; -\,\tm{E}{\mathbb{E}_{(x,\,y_w,\,y_l)\sim\mathcal{D}}}
+  \Big[\,\tm{ls}{\log\sigma}\Big(\,\tm{b}{\beta}\,\tm{cw}{\color{fern}\log\frac{\pi_\theta(y_w\mid x)}{\pi_{\mathrm{ref}}(y_w\mid x)}}
+  \;-\; \beta\,\tm{cl}{\color{grey500}\log\frac{\pi_\theta(y_l\mid x)}{\pi_{\mathrm{ref}}(y_l\mid x)}}\,\Big)\Big]
+$};
+\ann{L}{a}{1}{0}{loss for\\the policy};
+\ann{ls}{a}{2}{0}{the Bradley--Terry loss again, now applied to the policy itself};
+\anna{cw}{a}{1}{0.6}{how much more likely the policy makes\\the preferred response than the reference};
+\ann{E}{b}{1}{0}{a fixed dataset of comparisons:\\no sampling during training};
+\ann{cl}{b}{1}{0}{the same for the\\rejected response};
+\ann{b}{b}{2}{0}{the KL weight from RLHF:\\how far the policy may move};
+\end{tikzpicture}
+\end{document}

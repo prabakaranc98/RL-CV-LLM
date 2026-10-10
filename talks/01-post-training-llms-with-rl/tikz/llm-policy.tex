@@ -1,0 +1,24 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\large, node distance=12mm]
+\node[blk, minimum width=32mm, minimum height=16mm] (txt) {prompt $x$ and\\tokens so far $y_{<t}$};
+\node[blkg, right=of txt, minimum width=26mm, minimum height=16mm] (tok) {tokenizer};
+\node[blkf, right=of tok, minimum width=32mm, minimum height=16mm] (tr) {\textbf{transformer}\\ parameters $\theta$};
+\node[blk, right=of tr, minimum width=26mm, minimum height=16mm] (lg) {logits\\ $z\in\mathbb{R}^{|\mathcal V|}$};
+\node[blkg, right=of lg, minimum width=26mm, minimum height=16mm] (sm) {softmax};
+\node[blk, right=of sm, minimum width=26mm, minimum height=16mm, draw=fern, line width=1.4pt] (y) {sampled\\token $y_t$};
+\draw[ar] (txt) -- (tok);
+\draw[ar] (tok) -- (tr);
+\draw[ar] (tr) -- (lg);
+\draw[ar] (lg) -- (sm);
+\draw[ar] (sm) -- (y);
+\draw[arf] (y.north) to[out=90,in=90, looseness=0.32] node[pos=0.5, above, text=ferndark] {append $y_t$ to the context; repeat until an end-of-sequence token} (txt.north);
+% captions below
+\node[capt, below=3mm of tok] {text $\to$ integer ids};
+\node[capt, below=3mm of tr] {Qwen3-0.6B:\\28 layers};
+\node[capt, below=3mm of lg] {one score per\\vocabulary entry};
+\node[capt, below=3mm of sm] {$\pi_\theta(v\mid x,y_{<t})=\dfrac{e^{z_v}}{\sum_{u} e^{z_u}}$};
+\node[capt, below=3mm of y] {greedy, temperature\\or top-$p$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\Large, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{J}{J_{\mathrm{GRPO}}(\theta)} = \tm{E}{\mathbb{E}}\Big[\,\tm{G}{\tfrac{1}{G}\textstyle\sum_{i=1}^{G}}\,
+  \tm{T}{\tfrac{1}{|y^{(i)}|}\textstyle\sum_{t}}\Big(
+  \tm{c}{\min\!\big(\rho_{i,t}\,\hat A_i,\ \operatorname{clip}(\rho_{i,t},1\!-\!\varepsilon,1\!+\!\varepsilon)\,\hat A_i\big)}
+  \;-\; \tm{K}{\color{grey500}\beta\,\mathrm{KL}_t\big(\pi_\theta\,\|\,\pi_{\mathrm{ref}}\big)}\Big)\Big]
+$};
+\ann{J}{a}{1}{-0.4}{objective,\\maximized over $\theta$};
+\ann{G}{a}{2}{0}{average over the $G$ responses to one prompt};
+\ann{c}{a}{1}{0}{PPO's clipped term, unchanged;\\$\rho_{i,t}=\pi_\theta/\pi_{\mathrm{old}}$ for token $t$ of response $i$};
+\ann{K}{a}{2}{0.4}{KL penalty to the reference,\\added to the loss, not the reward};
+\ann{E}{b}{1}{-0.6}{a prompt $x$ and $G$ responses\\sampled from $\pi_{\mathrm{old}}$};
+\ann{T}{b}{2}{0}{average over the tokens of response $i$};
+\end{tikzpicture}
+\end{document}

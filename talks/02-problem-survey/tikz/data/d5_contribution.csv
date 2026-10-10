@@ -1,0 +1,5 @@
+venue,group,n,method_pct,benchmark_pct,analysis_pct
+CVPR 2026,all in scope,849,82.8,12.6,4.6
+CVPR 2026,RL papers,228,85.1,9.6,5.3
+ACL 2026,all in scope,2296,70.8,18.3,10.9
+ACL 2026,RL papers,399,87.0,6.3,6.8

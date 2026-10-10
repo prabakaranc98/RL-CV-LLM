@@ -1,0 +1,62 @@
+% Synchronous vs asynchronous RL: who waits for whom. Durations are illustrative.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\usetikzlibrary{patterns}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+    gen/.style={draw=grey500, line width=0.7pt, fill=grey100},
+    upd/.style={draw=fern, line width=1pt, fill=ferntint},
+    idle/.style={draw=grey300, line width=0.5pt, pattern=north east lines, pattern color=grey300},
+    lane/.style={font=\footnotesize, text=grey700, anchor=east},
+    ver/.style={font=\scriptsize, text=grey700},
+    ptitle/.style={font=\small\bfseries, anchor=west}]
+  \def\h{0.42}
+  % ===================== synchronous =====================
+  \node[ptitle] at (-2.6,0.75) {Synchronous};
+  \foreach \lab/\y in {rollout 1/0, rollout 2/-0.6, rollout 3/-1.2} \node[lane] at (-0.15,\y) {\lab};
+  \node[lane, text=ferndark] at (-0.15,-1.95) {trainer};
+  % step 1
+  \foreach \y/\len in {0/5.4, -0.6/3.1, -1.2/4.3} {
+    \draw[gen] (0,{\y-\h/2}) rectangle (\len,{\y+\h/2});
+    \ifdim\len pt<5.4pt \draw[idle] (\len,{\y-\h/2}) rectangle (5.4,{\y+\h/2}); \fi
+    \draw[idle] (5.4,{\y-\h/2}) rectangle (8.0,{\y+\h/2});
+  }
+  \draw[idle] (0,{-1.95-\h/2}) rectangle (5.4,{-1.95+\h/2});
+  \draw[upd] (5.4,{-1.95-\h/2}) rectangle (8.0,{-1.95+\h/2}) node[midway, font=\footnotesize] {update};
+  % step 2 (starts after the weight sync)
+  \foreach \y/\len in {0/2.9, -0.6/4.6, -1.2/3.6} \draw[gen] (8.3,{\y-\h/2}) rectangle ({8.3+\len},{\y+\h/2});
+  \draw[idle] (8.0,{-1.95-\h/2}) rectangle (13.2,{-1.95+\h/2});
+  \node[font=\footnotesize, text=grey700] at (2.7,0) {generate};
+  \draw[flowa] (8.0,-1.95) -- (8.15,-1.95) -- (8.15,0.42) node[above, accentnote] {new weights};
+  \mk{(5.4,0.62)}{1}; \mk{(6.7,-0.6)}{2};
+  % ===================== asynchronous =====================
+  \begin{scope}[yshift=-4.1cm]
+  \node[ptitle] at (-2.6,0.75) {Asynchronous};
+  \foreach \lab/\y in {rollout 1/0, rollout 2/-0.6, rollout 3/-1.2} \node[lane] at (-0.15,\y) {\lab};
+  \node[lane, text=ferndark] at (-0.15,-1.95) {trainer};
+  % rollouts never stop; the label is the policy version that wrote the sample
+  \foreach \y/\a/\b/\v in {0/0/3.1/v1, 0/3.1/5.9/v1, 0/5.9/9.4/v2, 0/9.4/13.2/v3,
+                           -0.6/0/2.3/v1, -0.6/2.3/6.4/v1, -0.6/6.4/8.8/v2, -0.6/8.8/13.2/v3,
+                           -1.2/0/4.0/v1, -1.2/4.0/7.1/v2, -1.2/7.1/10.6/v2, -1.2/10.6/13.2/v3}
+    \draw[gen] (\a,{\y-\h/2}) rectangle (\b,{\y+\h/2}) node[midway, ver] {$\pi_{\mathrm{\v}}$};
+  \draw[upd] (2.5,{-1.95-\h/2}) rectangle (5.2,{-1.95+\h/2}) node[midway, font=\footnotesize] {update $\to$ v2};
+  \draw[upd] (5.6,{-1.95-\h/2}) rectangle (8.3,{-1.95+\h/2}) node[midway, font=\footnotesize] {update $\to$ v3};
+  \draw[upd] (8.7,{-1.95-\h/2}) rectangle (11.4,{-1.95+\h/2}) node[midway, font=\footnotesize] {update $\to$ v4};
+  \draw[idle] (0,{-1.95-\h/2}) rectangle (2.5,{-1.95+\h/2});
+  \mka{(13.55,0)}{3}; \mk{(13.55,-1.95)}{4};
+  \end{scope}
+  % time axis
+  \draw[grey400, line width=0.6pt, -{Stealth[length=5pt]}] (0,-7.0) -- (13.6,-7.0) node[right, dims] {time};
+  % legend
+  \draw[gen] (0,-7.5) rectangle (0.5,-7.8); \node[dims, anchor=west] at (0.6,-7.65) {generation};
+  \draw[upd] (2.6,-7.5) rectangle (3.1,-7.8); \node[dims, anchor=west] at (3.2,-7.65) {training update};
+  \draw[idle] (5.6,-7.5) rectangle (6.1,-7.8); \node[dims, anchor=west] at (6.2,-7.65) {idle};
+  \node[dims, anchor=west] at (7.4,-7.65) {durations: illustrative};
+  % notes
+  \notesat{(14.6,1.0)}{6.0cm}
+  \note{1}{Generation takes most of a step, and the whole batch waits for its longest response.}
+  \note{2}{While the trainer updates, the rollout GPUs sit idle, and the other way round.}
+  \notea{3}{Asynchronous: generation never stops. The trainer takes whatever has finished, and new weights are pushed to the rollout engine as they arrive.}
+  \note{4}{The price: some samples come from an older policy ($\pi_{\mathrm{v1}}$ while training v3). PPO-style ratios and clipping, or truncated importance weights, correct for that.}
+\end{tikzpicture}
+\end{document}

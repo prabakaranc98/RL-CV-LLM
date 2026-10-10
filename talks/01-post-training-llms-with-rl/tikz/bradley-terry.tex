@@ -1,0 +1,15 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{L}{\mathcal{L}(\phi)} \;=\; -\,\tm{E}{\mathbb{E}_{(x,\,y_w,\,y_l)\sim\mathcal{D}}}
+  \Big[\,\tm{ls}{\log\sigma}\big(\,\tm{rw}{\color{fern} r_\phi(x, y_w)} \;-\; \tm{rl}{\color{grey500} r_\phi(x, y_l)}\,\big)\Big]
+$};
+\ann{L}{a}{1}{0}{loss for the\\reward model};
+\ann{ls}{a}{2}{0}{log-probability that the person's choice is predicted, with $\sigma(z) = 1/(1+e^{-z})$};
+\anna{rw}{a}{1}{0}{score of the\\preferred response};
+\ann{E}{b}{1}{0}{average over human comparisons: a prompt $x$,\\a preferred response $y_w$ and a rejected $y_l$};
+\ann{rl}{b}{1}{0.4}{score of the\\rejected response};
+\end{tikzpicture}
+\end{document}

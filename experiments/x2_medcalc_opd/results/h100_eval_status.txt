@@ -1,0 +1,15 @@
+opd-c-lora32 step0 C greedy exit=0 wall=241s
+opd-c-lora32 step25 C greedy exit=0 wall=120s
+opd-c-lora32 step50 C greedy exit=0 wall=120s
+opd-c-lora32 step75 C greedy exit=0 wall=121s
+opd-c-lora32 step100 C greedy exit=0 wall=121s
+opd-c-lora32 step125 C greedy exit=0 wall=118s
+opd-c-lora32 step150 C greedy exit=0 wall=119s
+opd-c-lora32 per-calculator values exit=0 wall=168s
+opd-c-lora32 per-calculator note exit=0 wall=154s
+opd-c-lora32 generic values exit=0 wall=82s
+opd-c-lora32 generic note exit=0 wall=105s
+EVAL DONE opd-c-lora32
+opd-c-lora32 sampled exit=0
+base sampled exit=0
+SAMPLED DONE

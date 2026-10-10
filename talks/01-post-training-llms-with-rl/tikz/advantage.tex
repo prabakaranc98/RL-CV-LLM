@@ -1,0 +1,15 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{A}{\hat A_t} \;=\; \tm{R}{R_t} \;-\; \tm{b}{\color{grey500} b(s_t)},
+  \qquad
+  \tm{Rt}{R_t=\textstyle\sum_{k\ge t} r_k}
+$};
+\anna{A}{a}{1}{-0.4}{advantage estimate\\for the action at step $t$};
+\ann{b}{a}{1}{0.5}{baseline: the return expected\\from $s_t$, e.g.\ the value $V(s_t)$};
+\ann{R}{b}{1}{-0.2}{what actually happened:\\the return from step $t$ on};
+\ann{Rt}{b}{1}{0.4}{rewards collected from\\step $t$ to the end};
+\end{tikzpicture}
+\end{document}

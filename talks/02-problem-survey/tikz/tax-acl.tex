@@ -1,0 +1,51 @@
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, card/.style={draw=grey300, line width=0.7pt, rounded corners=4pt, fill=white, inner xsep=7pt, inner ysep=6pt, anchor=north west, align=left}]
+\node[card] (g0) at (0,0) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Reasoning}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}math reasoning} & \makebox[0.75cm][r]{\color{grey700}28} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.100cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.80}}\\
+\makebox[4.00cm][l]{\color{grey700}logical \& symbolic} & \makebox[0.75cm][r]{\color{grey700}67} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.240cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.04}}\\
+\makebox[4.00cm][l]{\color{grey700}commonsense \& multi-hop} & \makebox[0.75cm][r]{\color{grey700}67} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.240cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey500}{×0.65\,$\downarrow$}}\\
+\makebox[4.00cm][l]{\color{grey700}planning} & \makebox[0.75cm][r]{\color{grey700}34} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.122cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.49}}\\
+\makebox[4.00cm][l]{\color{grey700}causal, temporal, spatial} & \makebox[0.75cm][r]{\color{grey700}74} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.265cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.11}}\\
+\makebox[4.00cm][l]{\color{grey700}long reasoning \& test-time} & \makebox[0.75cm][r]{\color{grey700}98} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.351cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×3.51}}}\\
+\makebox[4.00cm][l]{\color{grey700}reasoning efficiency} & \makebox[0.75cm][r]{\color{grey700}18} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.064cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×5.05}}}\\\end{tabular}};
+\coordinate (top0) at (g0.north east);
+\node[card] (g1) at ([yshift=-0.3cm]g0.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Acting}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}agents \& tool use} & \makebox[0.75cm][r]{\color{grey700}309} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{1.107cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×2.91}}}\\
+\makebox[4.00cm][l]{\color{grey700}retrieval \& RAG} & \makebox[0.75cm][r]{\color{grey700}187} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.670cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.52}}}\\
+\makebox[4.00cm][l]{\color{grey700}code \& SQL} & \makebox[0.75cm][r]{\color{grey700}128} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.458cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.04}}\\
+\makebox[4.00cm][l]{\color{grey700}multi-agent \& debate} & \makebox[0.75cm][r]{\color{grey700}68} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.244cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×5.10}}}\\\end{tabular}};
+\node[card] (g2) at ([xshift=0.35cm]top0.north east) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Aligning}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}preference alignment} & \makebox[0.75cm][r]{\color{grey700}183} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.655cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.65}}}\\
+\makebox[4.00cm][l]{\color{grey700}RL post-training} & \makebox[0.75cm][r]{\color{grey700}162} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.580cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×5.32}}}\\
+\makebox[4.00cm][l]{\color{grey700}safety \& jailbreaks} & \makebox[0.75cm][r]{\color{grey700}97} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.347cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.86}}}\\
+\makebox[4.00cm][l]{\color{grey700}hallucination} & \makebox[0.75cm][r]{\color{grey700}86} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.308cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.92}}\\
+\makebox[4.00cm][l]{\color{grey700}evaluation \& benchmarks} & \makebox[0.75cm][r]{\color{grey700}363} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{1.300cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.19}}\\
+\makebox[4.00cm][l]{\color{grey700}bias \& fairness} & \makebox[0.75cm][r]{\color{grey700}46} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.165cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.31}}\\\end{tabular}};
+\coordinate (top1) at (g2.north east);
+\node[card] (g3) at ([yshift=-0.3cm]g2.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Understanding models}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}interpretability} & \makebox[0.75cm][r]{\color{grey700}77} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.276cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.11}}\\
+\makebox[4.00cm][l]{\color{grey700}knowledge \& memory} & \makebox[0.75cm][r]{\color{grey700}106} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.380cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.86}}}\\
+\makebox[4.00cm][l]{\color{grey700}uncertainty} & \makebox[0.75cm][r]{\color{grey700}52} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.186cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.23}}\\\end{tabular}};
+\node[card] (g4) at ([yshift=-0.3cm]g3.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Efficiency}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}compression \& KV cache} & \makebox[0.75cm][r]{\color{grey700}84} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.301cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.98}}}\\
+\makebox[4.00cm][l]{\color{grey700}long context} & \makebox[0.75cm][r]{\color{grey700}41} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.147cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.92}}\\\end{tabular}};
+\node[card] (g5) at ([xshift=0.35cm]top1.north east) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Language \& society}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}multilingual \& MT} & \makebox[0.75cm][r]{\color{grey700}115} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.412cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey500}{×0.58\,$\downarrow$}}\\
+\makebox[4.00cm][l]{\color{grey700}culture \& values} & \makebox[0.75cm][r]{\color{grey700}60} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.215cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×1.50}}}\\
+\makebox[4.00cm][l]{\color{grey700}dialogue \& persona} & \makebox[0.75cm][r]{\color{grey700}112} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.401cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.04}}\\
+\makebox[4.00cm][l]{\color{grey700}creativity \& writing} & \makebox[0.75cm][r]{\color{grey700}36} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.129cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.85}}\\
+\makebox[4.00cm][l]{\color{grey700}diversity} & \makebox[0.75cm][r]{\color{grey700}12} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.043cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.14}}\\\end{tabular}};
+\coordinate (top2) at (g5.north east);
+\node[card] (g6) at ([yshift=-0.3cm]g5.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Domains}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}medical \& clinical} & \makebox[0.75cm][r]{\color{grey700}57} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.204cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{ferndark}{\textbf{×2.77}}}\\
+\makebox[4.00cm][l]{\color{grey700}legal, finance, education} & \makebox[0.75cm][r]{\color{grey700}41} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.147cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.03}}\\\end{tabular}};
+\node[card] (g7) at ([yshift=-0.3cm]g6.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Multimodal}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}vision-language} & \makebox[0.75cm][r]{\color{grey700}304} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{1.089cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×1.31}}\\
+\makebox[4.00cm][l]{\color{grey700}speech \& audio} & \makebox[0.75cm][r]{\color{grey700}79} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.283cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.85}}\\\end{tabular}};
+\node[card] (g8) at ([yshift=-0.3cm]g7.south west) {\begin{tabular}{@{}l@{\hspace{3pt}}l@{\hspace{6pt}}l@{}l@{}}\multicolumn{4}{@{}l@{}}{\textbf{\color{ink}Data}}\\[2pt]
+\makebox[4.00cm][l]{\color{grey700}synthetic data} & \makebox[0.75cm][r]{\color{grey700}28} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.100cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey500}{×0.60\,$\downarrow$}}\\
+\makebox[4.00cm][l]{\color{grey700}distillation} & \makebox[0.75cm][r]{\color{grey700}30} & \makebox[1.35cm][l]{\textcolor{grey300}{\rule[0.15ex]{0.107cm}{1.2ex}}} & \makebox[1.35cm][r]{\textcolor{grey700}{×0.92}}\\\end{tabular}};
+\end{tikzpicture}
+\end{document}

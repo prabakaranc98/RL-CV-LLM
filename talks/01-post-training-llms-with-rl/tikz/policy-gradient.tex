@@ -1,0 +1,18 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{G}{\nabla_\theta J(\theta)} \;=\;
+  \tm{E}{\mathbb{E}_{\tau\sim\pi_\theta}}\Big[\,
+  \tm{S}{\textstyle\sum_{t}}\;
+  \tm{L}{\color{fern}\nabla_\theta \log \pi_\theta(a_t\mid s_t)}\;\cdot\;
+  \tm{A}{A_t}\,\Big]
+$};
+\ann{G}{a}{1}{0}{gradient of the objective:\\direction of steepest increase};
+\anna{L}{a}{1}{0}{direction in parameter space that makes\\action $a_t$ more likely in state $s_t$};
+\ann{E}{b}{1}{-2.3}{estimated from sampled trajectories;\\the environment is never differentiated};
+\ann{S}{b}{2}{0}{one term per action taken};
+\anna{A}{b}{1}{0.4}{weight of that action: positive if it was\\better than expected, negative if worse};
+\end{tikzpicture}
+\end{document}

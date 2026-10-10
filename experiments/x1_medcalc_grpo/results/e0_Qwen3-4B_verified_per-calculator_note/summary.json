@@ -1,0 +1,329 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "data": "verified",
+ "shots": "per-calculator",
+ "input": "note",
+ "n_test": 1100,
+ "accuracy": 0.5545454545454546,
+ "format_valid_rate": 0.8881818181818182,
+ "truncation_rate": 0.6972727272727273,
+ "outcomes": {
+  "correct": 610,
+  "wrong value (<=50% off)": 155,
+  "wrong value (>50% off)": 132,
+  "no answer: degenerate loop": 66,
+  "no answer: truncated (no loop)": 55,
+  "wrong value (date / weeks)": 47,
+  "wrong value (<=10% off)": 33,
+  "bad format in box": 2
+ },
+ "degenerate_rate": 0.06,
+ "max_new": 1024,
+ "gen_tokens_mean": 800.72,
+ "gen_tokens_median": 1024.0,
+ "constant_guess_accuracy": 0.12727272727272726,
+ "by_category": {
+  "date": {
+   "n": 60,
+   "accuracy": 0.15
+  },
+  "diagnosis": {
+   "n": 60,
+   "accuracy": 0.48333333333333334
+  },
+  "dosage": {
+   "n": 40,
+   "accuracy": 0.8
+  },
+  "lab test": {
+   "n": 380,
+   "accuracy": 0.6578947368421053
+  },
+  "physical": {
+   "n": 240,
+   "accuracy": 0.8125
+  },
+  "risk": {
+   "n": 240,
+   "accuracy": 0.24583333333333332
+  },
+  "severity": {
+   "n": 80,
+   "accuracy": 0.45
+  }
+ },
+ "by_output_type": {
+  "date": {
+   "n": 60,
+   "accuracy": 0.15
+  },
+  "decimal": {
+   "n": 680,
+   "accuracy": 0.7073529411764706
+  },
+  "integer": {
+   "n": 360,
+   "accuracy": 0.3333333333333333
+  }
+ },
+ "by_note_type": {
+  "Extracted": {
+   "n": 676,
+   "accuracy": 0.599112426035503
+  },
+  "Synthetic": {
+   "n": 204,
+   "accuracy": 0.30392156862745096
+  },
+  "Template": {
+   "n": 220,
+   "accuracy": 0.65
+  }
+ },
+ "by_calculator": {
+  "APACHE II Score": {
+   "n": 20,
+   "accuracy": 0.0
+  },
+  "Adjusted Body Weight": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Albumin Corrected Anion Gap": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Albumin Corrected Delta Gap": {
+   "n": 20,
+   "accuracy": 0.9
+  },
+  "Albumin Corrected Delta Ratio": {
+   "n": 20,
+   "accuracy": 0.8
+  },
+  "Anion Gap": {
+   "n": 20,
+   "accuracy": 0.9
+  },
+  "Body Mass Index (BMI)": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Body Surface Area Calculator": {
+   "n": 20,
+   "accuracy": 0.45
+  },
+  "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "CKD-EPI Equations for Glomerular Filtration Rate": {
+   "n": 20,
+   "accuracy": 0.5
+  },
+  "CURB-65 Score for Pneumonia Severity": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "Calcium Correction for Hypoalbuminemia": {
+   "n": 20,
+   "accuracy": 0.75
+  },
+  "Caprini Score for Venous Thromboembolism (2005)": {
+   "n": 20,
+   "accuracy": 0.0
+  },
+  "Centor Score (Modified/McIsaac) for Strep Pharyngitis": {
+   "n": 20,
+   "accuracy": 0.65
+  },
+  "Charlson Comorbidity Index (CCI)": {
+   "n": 20,
+   "accuracy": 0.0
+  },
+  "Child-Pugh Score for Cirrhosis Mortality": {
+   "n": 20,
+   "accuracy": 0.75
+  },
+  "Creatinine Clearance (Cockcroft-Gault Equation)": {
+   "n": 20,
+   "accuracy": 0.25
+  },
+  "Delta Gap": {
+   "n": 20,
+   "accuracy": 1.0
+  },
+  "Delta Ratio": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Estimated Date of Conception": {
+   "n": 20,
+   "accuracy": 0.25
+  },
+  "Estimated Due Date": {
+   "n": 20,
+   "accuracy": 0.05
+  },
+  "Estimated Gestational Age": {
+   "n": 20,
+   "accuracy": 0.15
+  },
+  "FeverPAIN Score for Strep Pharyngitis": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "Fibrosis-4 (FIB-4) Index for Liver Fibrosis": {
+   "n": 20,
+   "accuracy": 0.55
+  },
+  "Fractional Excretion of Sodium (FENa)": {
+   "n": 20,
+   "accuracy": 0.6
+  },
+  "Framingham Risk Score for Hard Coronary Heart Disease": {
+   "n": 20,
+   "accuracy": 0.1
+  },
+  "Free Water Deficit": {
+   "n": 20,
+   "accuracy": 0.65
+  },
+  "Glasgow Coma Score (GCS)": {
+   "n": 20,
+   "accuracy": 0.4
+  },
+  "Glasgow-Blatchford Bleeding Score (GBS)": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "HAS-BLED Score for Major Bleeding Risk": {
+   "n": 20,
+   "accuracy": 0.3
+  },
+  "HEART Score for Major Cardiac Events": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Ideal Body Weight": {
+   "n": 20,
+   "accuracy": 1.0
+  },
+  "LDL Calculated": {
+   "n": 20,
+   "accuracy": 0.8
+  },
+  "MDRD GFR Equation": {
+   "n": 20,
+   "accuracy": 0.1
+  },
+  "MELD Na (UNOS/OPTN)": {
+   "n": 20,
+   "accuracy": 0.05
+  },
+  "Maintenance Fluids Calculations": {
+   "n": 20,
+   "accuracy": 0.9
+  },
+  "Mean Arterial Pressure (MAP)": {
+   "n": 20,
+   "accuracy": 0.4
+  },
+  "Morphine Milligram Equivalents (MME) Calculator": {
+   "n": 20,
+   "accuracy": 1.0
+  },
+  "PERC Rule for Pulmonary Embolism": {
+   "n": 20,
+   "accuracy": 0.55
+  },
+  "PSI Score: Pneumonia Severity Index for CAP": {
+   "n": 20,
+   "accuracy": 0.0
+  },
+  "QTc Bazett Calculator": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "QTc Framingham Calculator": {
+   "n": 20,
+   "accuracy": 1.0
+  },
+  "QTc Fridericia Calculator": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "QTc Hodges Calculator": {
+   "n": 20,
+   "accuracy": 1.0
+  },
+  "QTc Rautaharju Calculator": {
+   "n": 20,
+   "accuracy": 0.85
+  },
+  "Revised Cardiac Risk Index for Pre-Operative Risk": {
+   "n": 20,
+   "accuracy": 0.35
+  },
+  "SIRS Criteria": {
+   "n": 20,
+   "accuracy": 0.55
+  },
+  "Sequential Organ Failure Assessment (SOFA) Score": {
+   "n": 20,
+   "accuracy": 0.1
+  },
+  "Serum Osmolality": {
+   "n": 20,
+   "accuracy": 0.85
+  },
+  "Sodium Correction for Hyperglycemia": {
+   "n": 20,
+   "accuracy": 0.85
+  },
+  "Steroid Conversion Calculator": {
+   "n": 20,
+   "accuracy": 0.6
+  },
+  "Target weight": {
+   "n": 20,
+   "accuracy": 0.95
+  },
+  "Wells' Criteria for DVT": {
+   "n": 20,
+   "accuracy": 0.2
+  },
+  "Wells' Criteria for Pulmonary Embolism": {
+   "n": 20,
+   "accuracy": 0.6
+  }
+ },
+ "passk_subset": {
+  "n_prompts": 275,
+  "samples_per_prompt": 8,
+  "pass@1": 0.514090909090909,
+  "pass@2": 0.6744155844155845,
+  "pass@4": 0.7843636363636364,
+  "pass@8": 0.850909090909091,
+  "all_wrong": 41,
+  "all_right": 22,
+  "learnable_band": 212
+ },
+ "systems": {
+  "gpu": "NVIDIA A40",
+  "vllm": "0.31.0",
+  "load_s": 102.52707934379578,
+  "greedy_s": 729.1521050930023,
+  "sampled_s": 1050.1315143108368,
+  "greedy_prompt_tok_per_s": 2825.684772228978,
+  "greedy_gen_tok_per_s": 1207.967437586505,
+  "sampled_gen_tok_per_s": 1855.1914435960239,
+  "gpu_mem_used_gb_after_load": 40.352874496,
+  "gpu_mem_total_gb": 47.697690624,
+  "cost_usd": 0.3084078645169735
+ }
+}

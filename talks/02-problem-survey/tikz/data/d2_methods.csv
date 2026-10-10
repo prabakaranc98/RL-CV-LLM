@@ -1,0 +1,6 @@
+venue_year,n_scope,RL,Preference,Distillation,SelfDistil,OnPolicyDistil,RewardModel
+CVPR 2025,386,21,24,69,3,0,7
+CVPR 2026,849,228,41,106,6,4,40
+ACL 2025,1699,74,84,50,2,0,55
+ACL 2026,2296,399,71,128,7,0,69
+EMNLP 2025,1809,117,73,76,6,0,47

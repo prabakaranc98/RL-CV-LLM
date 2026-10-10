@@ -1,0 +1,22 @@
+{
+ "run": "smoke",
+ "shots": "per-calculator",
+ "input": "values",
+ "group": 8,
+ "prompts_per_step": 2,
+ "max_steps": 3,
+ "lr": 3e-06,
+ "warmup_steps": 10,
+ "beta": 0.04,
+ "epsilon": 0.2,
+ "temperature": 1.0,
+ "max_prompt": 1024,
+ "max_new": 256,
+ "rollout_micro": 2,
+ "train_micro": 1,
+ "logps_micro": 1,
+ "eval_prompts": 4,
+ "eval_every": 2,
+ "seed": 0,
+ "wandb": true
+}

@@ -1,0 +1,30 @@
+% Three ways to learn from a teacher: who writes the response, and where the signal comes from.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, b/.style={block, minimum height=0.95cm, text width=3.5cm}]
+  \foreach \y/\t in {0/{off-policy distillation}, -2.1/{on-policy distillation}, -4.2/{on-policy self-distillation}}
+    \node[font=\small\bfseries, text=ink, anchor=east, align=right, text width=2.9cm] at (-0.3,\y) {\t};
+  % row 1
+  \node[b, fill=grey100] (a1) at (2.0,0) {teacher $\pi_T$ writes\\the responses};
+  \node[b] (a2) at (6.4,0) {dataset of teacher\\responses};
+  \node[b] (a3) at (10.8,0) {student $\pi_\theta$ imitates them\\(SFT on teacher tokens)};
+  \draw[flow] (a1) -- (a2); \draw[flow] (a2) -- (a3);
+  % row 2
+  \node[b, accent, fill=ferntint] (b1) at (2.0,-2.1) {student $\pi_\theta$ writes\\the response $y$};
+  \node[b, fill=grey100] (b2) at (6.4,-2.1) {teacher $\pi_T$ scores each\\token of $y$};
+  \node[b] (b3) at (10.8,-2.1) {student update with a\\per-token signal};
+  \draw[flow] (b1) -- (b2); \draw[flow] (b2) -- (b3);
+  \draw[flowa] (b3.south) -- ++(0,-0.3) -| (b1.south);
+  % row 3
+  \node[b, accent, fill=ferntint] (c1) at (2.0,-4.6) {student $\pi_\theta$ sees $x$,\\writes the response $y$};
+  \node[b, fill=grey100] (c2) at (6.4,-4.6) {frozen copy of itself sees\\$x$ \emph{and} the solution $y^\star$};
+  \node[b] (c3) at (10.8,-4.6) {student matches the\\copy's next-token distributions};
+  \draw[flow] (c1) -- (c2); \draw[flow] (c2) -- (c3);
+  \draw[flowa] (c3.south) -- ++(0,-0.3) -| (c1.south);
+  % column headings
+  \node[dims, font=\small] at (2.0,0.9) {who writes the response};
+  \node[dims, font=\small] at (6.4,0.9) {where the signal comes from};
+  \node[dims, font=\small] at (10.8,0.9) {how the student learns};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{A}{A_t} \;=\;
+  \tm{T}{\color{grey500}\log \pi_{T}(\tm{y}{y_t}\mid \tm{c}{x, y_{<t}})} \;-\; \tm{S}{\color{fern}\log \pi_{\theta}(y_t\mid x, y_{<t})}
+$};
+\ann{A}{l}{1}{0}{advantage\\of token $t$};
+\ann{T}{a}{1}{0}{how likely the teacher finds the token\\(frozen: one forward pass, no gradient)};
+\anna{S}{a}{1}{0.3}{how likely the student found it\\(the model being trained)};
+\ann{y}{b}{1}{-1.0}{$y_t$: the token the\\student sampled};
+\ann{c}{b}{2}{0.8}{$x, y_{<t}$: the prompt and the student's earlier tokens};
+\end{tikzpicture}
+\end{document}

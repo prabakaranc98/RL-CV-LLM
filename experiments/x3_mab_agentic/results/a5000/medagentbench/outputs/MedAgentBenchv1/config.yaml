@@ -1,0 +1,40 @@
+assignments:
+- agent: qwen3-0.6b
+  task: medagentbench-std
+concurrency:
+  agent:
+    qwen3-0.6b: 10
+  task:
+    medagentbench-std: 20
+definition:
+  agent:
+    qwen3-0.6b:
+      module: src.client.agents.HTTPAgent
+      parameters:
+        body:
+          chat_template_kwargs:
+            enable_thinking: false
+          max_tokens: 2048
+          model: Qwen/Qwen3-0.6B
+          temperature: 0
+        headers:
+          Content-Type: application/json
+        name: qwen3-0.6b
+        prompter:
+          args:
+            agent_role: assistant
+          name: role_content_dict
+        return_format: '{response[choices][0][message][content]}'
+        url: http://localhost:8011/v1/chat/completions
+  task:
+    medagentbench-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 1
+        controller_address: http://localhost:5000/api
+        data_file: data/medagentbench/test_data_v2.json
+        fhir_api_base: https://e0hhwfbzlt3401-8080.proxy.runpod.net/fhir/
+        func_file: data/medagentbench/funcs_v1.json
+        max_round: 8
+        name: medagentbench-std
+output: outputs/MedAgentBenchv1
