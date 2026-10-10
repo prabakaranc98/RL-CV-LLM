@@ -1,0 +1,12 @@
+{
+  "name": "post-training-llms-with-rl-deck",
+  "private": true,
+  "description": "Marp deck: Post-training LLMs with RL",
+  "scripts": {
+    "build": "./build.sh",
+    "preview": "./build.sh --png"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  }
+}

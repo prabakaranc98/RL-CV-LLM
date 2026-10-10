@@ -1,0 +1,275 @@
+{"id": "test-1", "calculator": "Creatinine Clearance (Cockcroft-Gault Equation)", "correct": 0, "n": 8}
+{"id": "test-2", "calculator": "Creatinine Clearance (Cockcroft-Gault Equation)", "correct": 0, "n": 8}
+{"id": "test-3", "calculator": "Creatinine Clearance (Cockcroft-Gault Equation)", "correct": 1, "n": 8}
+{"id": "test-4", "calculator": "Creatinine Clearance (Cockcroft-Gault Equation)", "correct": 0, "n": 8}
+{"id": "test-5", "calculator": "Creatinine Clearance (Cockcroft-Gault Equation)", "correct": 0, "n": 8}
+{"id": "test-21", "calculator": "CKD-EPI Equations for Glomerular Filtration Rate", "correct": 0, "n": 8}
+{"id": "test-22", "calculator": "CKD-EPI Equations for Glomerular Filtration Rate", "correct": 1, "n": 8}
+{"id": "test-23", "calculator": "CKD-EPI Equations for Glomerular Filtration Rate", "correct": 0, "n": 8}
+{"id": "test-24", "calculator": "CKD-EPI Equations for Glomerular Filtration Rate", "correct": 0, "n": 8}
+{"id": "test-25", "calculator": "CKD-EPI Equations for Glomerular Filtration Rate", "correct": 0, "n": 8}
+{"id": "test-41", "calculator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk", "correct": 1, "n": 8}
+{"id": "test-42", "calculator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk", "correct": 1, "n": 8}
+{"id": "test-43", "calculator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk", "correct": 1, "n": 8}
+{"id": "test-44", "calculator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk", "correct": 3, "n": 8}
+{"id": "test-45", "calculator": "CHA2DS2-VASc Score for Atrial Fibrillation Stroke Risk", "correct": 3, "n": 8}
+{"id": "test-61", "calculator": "Mean Arterial Pressure (MAP)", "correct": 1, "n": 8}
+{"id": "test-62", "calculator": "Mean Arterial Pressure (MAP)", "correct": 4, "n": 8}
+{"id": "test-63", "calculator": "Mean Arterial Pressure (MAP)", "correct": 4, "n": 8}
+{"id": "test-64", "calculator": "Mean Arterial Pressure (MAP)", "correct": 3, "n": 8}
+{"id": "test-65", "calculator": "Mean Arterial Pressure (MAP)", "correct": 1, "n": 8}
+{"id": "test-81", "calculator": "Body Mass Index (BMI)", "correct": 6, "n": 8}
+{"id": "test-82", "calculator": "Body Mass Index (BMI)", "correct": 7, "n": 8}
+{"id": "test-83", "calculator": "Body Mass Index (BMI)", "correct": 6, "n": 8}
+{"id": "test-84", "calculator": "Body Mass Index (BMI)", "correct": 7, "n": 8}
+{"id": "test-85", "calculator": "Body Mass Index (BMI)", "correct": 7, "n": 8}
+{"id": "test-101", "calculator": "Calcium Correction for Hypoalbuminemia", "correct": 4, "n": 8}
+{"id": "test-102", "calculator": "Calcium Correction for Hypoalbuminemia", "correct": 2, "n": 8}
+{"id": "test-103", "calculator": "Calcium Correction for Hypoalbuminemia", "correct": 5, "n": 8}
+{"id": "test-104", "calculator": "Calcium Correction for Hypoalbuminemia", "correct": 5, "n": 8}
+{"id": "test-105", "calculator": "Calcium Correction for Hypoalbuminemia", "correct": 4, "n": 8}
+{"id": "test-121", "calculator": "Wells' Criteria for Pulmonary Embolism", "correct": 1, "n": 8}
+{"id": "test-122", "calculator": "Wells' Criteria for Pulmonary Embolism", "correct": 2, "n": 8}
+{"id": "test-123", "calculator": "Wells' Criteria for Pulmonary Embolism", "correct": 0, "n": 8}
+{"id": "test-124", "calculator": "Wells' Criteria for Pulmonary Embolism", "correct": 0, "n": 8}
+{"id": "test-125", "calculator": "Wells' Criteria for Pulmonary Embolism", "correct": 2, "n": 8}
+{"id": "test-141", "calculator": "MDRD GFR Equation", "correct": 0, "n": 8}
+{"id": "test-142", "calculator": "MDRD GFR Equation", "correct": 3, "n": 8}
+{"id": "test-143", "calculator": "MDRD GFR Equation", "correct": 0, "n": 8}
+{"id": "test-144", "calculator": "MDRD GFR Equation", "correct": 0, "n": 8}
+{"id": "test-145", "calculator": "MDRD GFR Equation", "correct": 0, "n": 8}
+{"id": "test-161", "calculator": "Ideal Body Weight", "correct": 4, "n": 8}
+{"id": "test-162", "calculator": "Ideal Body Weight", "correct": 3, "n": 8}
+{"id": "test-163", "calculator": "Ideal Body Weight", "correct": 6, "n": 8}
+{"id": "test-164", "calculator": "Ideal Body Weight", "correct": 2, "n": 8}
+{"id": "test-165", "calculator": "Ideal Body Weight", "correct": 2, "n": 8}
+{"id": "test-181", "calculator": "QTc Bazett Calculator", "correct": 8, "n": 8}
+{"id": "test-182", "calculator": "QTc Bazett Calculator", "correct": 7, "n": 8}
+{"id": "test-183", "calculator": "QTc Bazett Calculator", "correct": 8, "n": 8}
+{"id": "test-184", "calculator": "QTc Bazett Calculator", "correct": 8, "n": 8}
+{"id": "test-185", "calculator": "QTc Bazett Calculator", "correct": 7, "n": 8}
+{"id": "test-201", "calculator": "Child-Pugh Score for Cirrhosis Mortality", "correct": 0, "n": 8}
+{"id": "test-202", "calculator": "Child-Pugh Score for Cirrhosis Mortality", "correct": 1, "n": 8}
+{"id": "test-203", "calculator": "Child-Pugh Score for Cirrhosis Mortality", "correct": 3, "n": 8}
+{"id": "test-204", "calculator": "Child-Pugh Score for Cirrhosis Mortality", "correct": 0, "n": 8}
+{"id": "test-205", "calculator": "Child-Pugh Score for Cirrhosis Mortality", "correct": 0, "n": 8}
+{"id": "test-221", "calculator": "Wells' Criteria for DVT", "correct": 3, "n": 8}
+{"id": "test-222", "calculator": "Wells' Criteria for DVT", "correct": 5, "n": 8}
+{"id": "test-223", "calculator": "Wells' Criteria for DVT", "correct": 0, "n": 8}
+{"id": "test-224", "calculator": "Wells' Criteria for DVT", "correct": 2, "n": 8}
+{"id": "test-225", "calculator": "Wells' Criteria for DVT", "correct": 0, "n": 8}
+{"id": "test-241", "calculator": "Revised Cardiac Risk Index for Pre-Operative Risk", "correct": 3, "n": 8}
+{"id": "test-242", "calculator": "Revised Cardiac Risk Index for Pre-Operative Risk", "correct": 1, "n": 8}
+{"id": "test-243", "calculator": "Revised Cardiac Risk Index for Pre-Operative Risk", "correct": 3, "n": 8}
+{"id": "test-244", "calculator": "Revised Cardiac Risk Index for Pre-Operative Risk", "correct": 4, "n": 8}
+{"id": "test-245", "calculator": "Revised Cardiac Risk Index for Pre-Operative Risk", "correct": 0, "n": 8}
+{"id": "test-261", "calculator": "HEART Score for Major Cardiac Events", "correct": 2, "n": 8}
+{"id": "test-262", "calculator": "HEART Score for Major Cardiac Events", "correct": 0, "n": 8}
+{"id": "test-263", "calculator": "HEART Score for Major Cardiac Events", "correct": 2, "n": 8}
+{"id": "test-264", "calculator": "HEART Score for Major Cardiac Events", "correct": 1, "n": 8}
+{"id": "test-265", "calculator": "HEART Score for Major Cardiac Events", "correct": 1, "n": 8}
+{"id": "test-281", "calculator": "Fibrosis-4 (FIB-4) Index for Liver Fibrosis", "correct": 2, "n": 8}
+{"id": "test-282", "calculator": "Fibrosis-4 (FIB-4) Index for Liver Fibrosis", "correct": 0, "n": 8}
+{"id": "test-283", "calculator": "Fibrosis-4 (FIB-4) Index for Liver Fibrosis", "correct": 0, "n": 8}
+{"id": "test-284", "calculator": "Fibrosis-4 (FIB-4) Index for Liver Fibrosis", "correct": 1, "n": 8}
+{"id": "test-285", "calculator": "Fibrosis-4 (FIB-4) Index for Liver Fibrosis", "correct": 2, "n": 8}
+{"id": "test-301", "calculator": "Centor Score (Modified/McIsaac) for Strep Pharyngitis", "correct": 5, "n": 8}
+{"id": "test-302", "calculator": "Centor Score (Modified/McIsaac) for Strep Pharyngitis", "correct": 4, "n": 8}
+{"id": "test-303", "calculator": "Centor Score (Modified/McIsaac) for Strep Pharyngitis", "correct": 4, "n": 8}
+{"id": "test-304", "calculator": "Centor Score (Modified/McIsaac) for Strep Pharyngitis", "correct": 0, "n": 8}
+{"id": "test-305", "calculator": "Centor Score (Modified/McIsaac) for Strep Pharyngitis", "correct": 4, "n": 8}
+{"id": "test-321", "calculator": "Maintenance Fluids Calculations", "correct": 7, "n": 8}
+{"id": "test-322", "calculator": "Maintenance Fluids Calculations", "correct": 1, "n": 8}
+{"id": "test-323", "calculator": "Maintenance Fluids Calculations", "correct": 5, "n": 8}
+{"id": "test-324", "calculator": "Maintenance Fluids Calculations", "correct": 5, "n": 8}
+{"id": "test-325", "calculator": "Maintenance Fluids Calculations", "correct": 4, "n": 8}
+{"id": "test-341", "calculator": "MELD Na (UNOS/OPTN)", "correct": 0, "n": 8}
+{"id": "test-342", "calculator": "MELD Na (UNOS/OPTN)", "correct": 1, "n": 8}
+{"id": "test-343", "calculator": "MELD Na (UNOS/OPTN)", "correct": 0, "n": 8}
+{"id": "test-344", "calculator": "MELD Na (UNOS/OPTN)", "correct": 0, "n": 8}
+{"id": "test-345", "calculator": "MELD Na (UNOS/OPTN)", "correct": 0, "n": 8}
+{"id": "test-361", "calculator": "HAS-BLED Score for Major Bleeding Risk", "correct": 2, "n": 8}
+{"id": "test-362", "calculator": "HAS-BLED Score for Major Bleeding Risk", "correct": 0, "n": 8}
+{"id": "test-363", "calculator": "HAS-BLED Score for Major Bleeding Risk", "correct": 1, "n": 8}
+{"id": "test-364", "calculator": "HAS-BLED Score for Major Bleeding Risk", "correct": 3, "n": 8}
+{"id": "test-365", "calculator": "HAS-BLED Score for Major Bleeding Risk", "correct": 3, "n": 8}
+{"id": "test-381", "calculator": "Sodium Correction for Hyperglycemia", "correct": 3, "n": 8}
+{"id": "test-382", "calculator": "Sodium Correction for Hyperglycemia", "correct": 7, "n": 8}
+{"id": "test-383", "calculator": "Sodium Correction for Hyperglycemia", "correct": 2, "n": 8}
+{"id": "test-384", "calculator": "Sodium Correction for Hyperglycemia", "correct": 0, "n": 8}
+{"id": "test-385", "calculator": "Sodium Correction for Hyperglycemia", "correct": 3, "n": 8}
+{"id": "test-401", "calculator": "Glasgow-Blatchford Bleeding Score (GBS)", "correct": 1, "n": 8}
+{"id": "test-402", "calculator": "Glasgow-Blatchford Bleeding Score (GBS)", "correct": 1, "n": 8}
+{"id": "test-403", "calculator": "Glasgow-Blatchford Bleeding Score (GBS)", "correct": 0, "n": 8}
+{"id": "test-404", "calculator": "Glasgow-Blatchford Bleeding Score (GBS)", "correct": 0, "n": 8}
+{"id": "test-405", "calculator": "Glasgow-Blatchford Bleeding Score (GBS)", "correct": 1, "n": 8}
+{"id": "test-421", "calculator": "Serum Osmolality", "correct": 3, "n": 8}
+{"id": "test-422", "calculator": "Serum Osmolality", "correct": 1, "n": 8}
+{"id": "test-423", "calculator": "Serum Osmolality", "correct": 2, "n": 8}
+{"id": "test-424", "calculator": "Serum Osmolality", "correct": 6, "n": 8}
+{"id": "test-425", "calculator": "Serum Osmolality", "correct": 3, "n": 8}
+{"id": "test-441", "calculator": "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)", "correct": 8, "n": 8}
+{"id": "test-442", "calculator": "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)", "correct": 5, "n": 8}
+{"id": "test-443", "calculator": "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)", "correct": 6, "n": 8}
+{"id": "test-444", "calculator": "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)", "correct": 5, "n": 8}
+{"id": "test-445", "calculator": "HOMA-IR (Homeostatic Model Assessment for Insulin Resistance)", "correct": 6, "n": 8}
+{"id": "test-461", "calculator": "Charlson Comorbidity Index (CCI)", "correct": 0, "n": 8}
+{"id": "test-462", "calculator": "Charlson Comorbidity Index (CCI)", "correct": 0, "n": 8}
+{"id": "test-463", "calculator": "Charlson Comorbidity Index (CCI)", "correct": 0, "n": 8}
+{"id": "test-464", "calculator": "Charlson Comorbidity Index (CCI)", "correct": 1, "n": 8}
+{"id": "test-465", "calculator": "Charlson Comorbidity Index (CCI)", "correct": 0, "n": 8}
+{"id": "test-481", "calculator": "FeverPAIN Score for Strep Pharyngitis", "correct": 0, "n": 8}
+{"id": "test-482", "calculator": "FeverPAIN Score for Strep Pharyngitis", "correct": 4, "n": 8}
+{"id": "test-483", "calculator": "FeverPAIN Score for Strep Pharyngitis", "correct": 3, "n": 8}
+{"id": "test-484", "calculator": "FeverPAIN Score for Strep Pharyngitis", "correct": 1, "n": 8}
+{"id": "test-485", "calculator": "FeverPAIN Score for Strep Pharyngitis", "correct": 6, "n": 8}
+{"id": "test-501", "calculator": "Free Water Deficit", "correct": 0, "n": 8}
+{"id": "test-502", "calculator": "Free Water Deficit", "correct": 0, "n": 8}
+{"id": "test-503", "calculator": "Free Water Deficit", "correct": 0, "n": 8}
+{"id": "test-504", "calculator": "Free Water Deficit", "correct": 0, "n": 8}
+{"id": "test-505", "calculator": "Free Water Deficit", "correct": 0, "n": 8}
+{"id": "test-521", "calculator": "Anion Gap", "correct": 4, "n": 8}
+{"id": "test-522", "calculator": "Anion Gap", "correct": 2, "n": 8}
+{"id": "test-523", "calculator": "Anion Gap", "correct": 1, "n": 8}
+{"id": "test-524", "calculator": "Anion Gap", "correct": 5, "n": 8}
+{"id": "test-525", "calculator": "Anion Gap", "correct": 4, "n": 8}
+{"id": "test-541", "calculator": "CURB-65 Score for Pneumonia Severity", "correct": 2, "n": 8}
+{"id": "test-542", "calculator": "CURB-65 Score for Pneumonia Severity", "correct": 3, "n": 8}
+{"id": "test-543", "calculator": "CURB-65 Score for Pneumonia Severity", "correct": 1, "n": 8}
+{"id": "test-544", "calculator": "CURB-65 Score for Pneumonia Severity", "correct": 5, "n": 8}
+{"id": "test-545", "calculator": "CURB-65 Score for Pneumonia Severity", "correct": 2, "n": 8}
+{"id": "test-561", "calculator": "Fractional Excretion of Sodium (FENa)", "correct": 0, "n": 8}
+{"id": "test-562", "calculator": "Fractional Excretion of Sodium (FENa)", "correct": 2, "n": 8}
+{"id": "test-563", "calculator": "Fractional Excretion of Sodium (FENa)", "correct": 5, "n": 8}
+{"id": "test-564", "calculator": "Fractional Excretion of Sodium (FENa)", "correct": 5, "n": 8}
+{"id": "test-565", "calculator": "Fractional Excretion of Sodium (FENa)", "correct": 2, "n": 8}
+{"id": "test-581", "calculator": "LDL Calculated", "correct": 1, "n": 8}
+{"id": "test-582", "calculator": "LDL Calculated", "correct": 0, "n": 8}
+{"id": "test-583", "calculator": "LDL Calculated", "correct": 3, "n": 8}
+{"id": "test-584", "calculator": "LDL Calculated", "correct": 1, "n": 8}
+{"id": "test-585", "calculator": "LDL Calculated", "correct": 4, "n": 8}
+{"id": "test-601", "calculator": "Framingham Risk Score for Hard Coronary Heart Disease", "correct": 0, "n": 8}
+{"id": "test-602", "calculator": "Framingham Risk Score for Hard Coronary Heart Disease", "correct": 0, "n": 8}
+{"id": "test-603", "calculator": "Framingham Risk Score for Hard Coronary Heart Disease", "correct": 0, "n": 8}
+{"id": "test-604", "calculator": "Framingham Risk Score for Hard Coronary Heart Disease", "correct": 0, "n": 8}
+{"id": "test-605", "calculator": "Framingham Risk Score for Hard Coronary Heart Disease", "correct": 0, "n": 8}
+{"id": "test-621", "calculator": "PERC Rule for Pulmonary Embolism", "correct": 0, "n": 8}
+{"id": "test-622", "calculator": "PERC Rule for Pulmonary Embolism", "correct": 4, "n": 8}
+{"id": "test-623", "calculator": "PERC Rule for Pulmonary Embolism", "correct": 7, "n": 8}
+{"id": "test-624", "calculator": "PERC Rule for Pulmonary Embolism", "correct": 3, "n": 8}
+{"id": "test-625", "calculator": "PERC Rule for Pulmonary Embolism", "correct": 4, "n": 8}
+{"id": "test-641", "calculator": "SIRS Criteria", "correct": 3, "n": 8}
+{"id": "test-642", "calculator": "SIRS Criteria", "correct": 3, "n": 8}
+{"id": "test-643", "calculator": "SIRS Criteria", "correct": 4, "n": 8}
+{"id": "test-644", "calculator": "SIRS Criteria", "correct": 1, "n": 8}
+{"id": "test-645", "calculator": "SIRS Criteria", "correct": 2, "n": 8}
+{"id": "test-661", "calculator": "QTc Fridericia Calculator", "correct": 2, "n": 8}
+{"id": "test-662", "calculator": "QTc Fridericia Calculator", "correct": 0, "n": 8}
+{"id": "test-663", "calculator": "QTc Fridericia Calculator", "correct": 4, "n": 8}
+{"id": "test-664", "calculator": "QTc Fridericia Calculator", "correct": 2, "n": 8}
+{"id": "test-665", "calculator": "QTc Fridericia Calculator", "correct": 3, "n": 8}
+{"id": "test-681", "calculator": "QTc Framingham Calculator", "correct": 5, "n": 8}
+{"id": "test-682", "calculator": "QTc Framingham Calculator", "correct": 2, "n": 8}
+{"id": "test-683", "calculator": "QTc Framingham Calculator", "correct": 3, "n": 8}
+{"id": "test-684", "calculator": "QTc Framingham Calculator", "correct": 2, "n": 8}
+{"id": "test-685", "calculator": "QTc Framingham Calculator", "correct": 1, "n": 8}
+{"id": "test-701", "calculator": "QTc Hodges Calculator", "correct": 1, "n": 8}
+{"id": "test-702", "calculator": "QTc Hodges Calculator", "correct": 0, "n": 8}
+{"id": "test-703", "calculator": "QTc Hodges Calculator", "correct": 2, "n": 8}
+{"id": "test-704", "calculator": "QTc Hodges Calculator", "correct": 0, "n": 8}
+{"id": "test-705", "calculator": "QTc Hodges Calculator", "correct": 1, "n": 8}
+{"id": "test-721", "calculator": "QTc Rautaharju Calculator", "correct": 0, "n": 8}
+{"id": "test-722", "calculator": "QTc Rautaharju Calculator", "correct": 1, "n": 8}
+{"id": "test-723", "calculator": "QTc Rautaharju Calculator", "correct": 4, "n": 8}
+{"id": "test-724", "calculator": "QTc Rautaharju Calculator", "correct": 1, "n": 8}
+{"id": "test-725", "calculator": "QTc Rautaharju Calculator", "correct": 2, "n": 8}
+{"id": "test-741", "calculator": "Body Surface Area Calculator", "correct": 5, "n": 8}
+{"id": "test-742", "calculator": "Body Surface Area Calculator", "correct": 1, "n": 8}
+{"id": "test-743", "calculator": "Body Surface Area Calculator", "correct": 1, "n": 8}
+{"id": "test-744", "calculator": "Body Surface Area Calculator", "correct": 5, "n": 8}
+{"id": "test-745", "calculator": "Body Surface Area Calculator", "correct": 1, "n": 8}
+{"id": "test-761", "calculator": "Adjusted Body Weight", "correct": 4, "n": 8}
+{"id": "test-762", "calculator": "Adjusted Body Weight", "correct": 2, "n": 8}
+{"id": "test-763", "calculator": "Adjusted Body Weight", "correct": 5, "n": 8}
+{"id": "test-764", "calculator": "Adjusted Body Weight", "correct": 4, "n": 8}
+{"id": "test-765", "calculator": "Adjusted Body Weight", "correct": 5, "n": 8}
+{"id": "test-781", "calculator": "Delta Gap", "correct": 5, "n": 8}
+{"id": "test-782", "calculator": "Delta Gap", "correct": 5, "n": 8}
+{"id": "test-783", "calculator": "Delta Gap", "correct": 2, "n": 8}
+{"id": "test-784", "calculator": "Delta Gap", "correct": 5, "n": 8}
+{"id": "test-785", "calculator": "Delta Gap", "correct": 5, "n": 8}
+{"id": "test-801", "calculator": "Delta Ratio", "correct": 1, "n": 8}
+{"id": "test-802", "calculator": "Delta Ratio", "correct": 1, "n": 8}
+{"id": "test-803", "calculator": "Delta Ratio", "correct": 2, "n": 8}
+{"id": "test-804", "calculator": "Delta Ratio", "correct": 4, "n": 8}
+{"id": "test-805", "calculator": "Delta Ratio", "correct": 6, "n": 8}
+{"id": "test-821", "calculator": "Albumin Corrected Anion Gap", "correct": 3, "n": 8}
+{"id": "test-822", "calculator": "Albumin Corrected Anion Gap", "correct": 0, "n": 8}
+{"id": "test-823", "calculator": "Albumin Corrected Anion Gap", "correct": 0, "n": 8}
+{"id": "test-824", "calculator": "Albumin Corrected Anion Gap", "correct": 2, "n": 8}
+{"id": "test-825", "calculator": "Albumin Corrected Anion Gap", "correct": 2, "n": 8}
+{"id": "test-841", "calculator": "Albumin Corrected Delta Gap", "correct": 0, "n": 8}
+{"id": "test-842", "calculator": "Albumin Corrected Delta Gap", "correct": 0, "n": 8}
+{"id": "test-843", "calculator": "Albumin Corrected Delta Gap", "correct": 4, "n": 8}
+{"id": "test-844", "calculator": "Albumin Corrected Delta Gap", "correct": 0, "n": 8}
+{"id": "test-845", "calculator": "Albumin Corrected Delta Gap", "correct": 0, "n": 8}
+{"id": "test-861", "calculator": "Albumin Corrected Delta Ratio", "correct": 1, "n": 8}
+{"id": "test-862", "calculator": "Albumin Corrected Delta Ratio", "correct": 4, "n": 8}
+{"id": "test-863", "calculator": "Albumin Corrected Delta Ratio", "correct": 3, "n": 8}
+{"id": "test-864", "calculator": "Albumin Corrected Delta Ratio", "correct": 3, "n": 8}
+{"id": "test-865", "calculator": "Albumin Corrected Delta Ratio", "correct": 0, "n": 8}
+{"id": "test-881", "calculator": "PSI Score: Pneumonia Severity Index for CAP", "correct": 0, "n": 8}
+{"id": "test-882", "calculator": "PSI Score: Pneumonia Severity Index for CAP", "correct": 0, "n": 8}
+{"id": "test-883", "calculator": "PSI Score: Pneumonia Severity Index for CAP", "correct": 0, "n": 8}
+{"id": "test-884", "calculator": "PSI Score: Pneumonia Severity Index for CAP", "correct": 0, "n": 8}
+{"id": "test-885", "calculator": "PSI Score: Pneumonia Severity Index for CAP", "correct": 0, "n": 8}
+{"id": "test-901", "calculator": "Glasgow Coma Score (GCS)", "correct": 0, "n": 8}
+{"id": "test-902", "calculator": "Glasgow Coma Score (GCS)", "correct": 4, "n": 8}
+{"id": "test-903", "calculator": "Glasgow Coma Score (GCS)", "correct": 1, "n": 8}
+{"id": "test-904", "calculator": "Glasgow Coma Score (GCS)", "correct": 2, "n": 8}
+{"id": "test-905", "calculator": "Glasgow Coma Score (GCS)", "correct": 1, "n": 8}
+{"id": "test-921", "calculator": "APACHE II Score", "correct": 0, "n": 8}
+{"id": "test-922", "calculator": "APACHE II Score", "correct": 0, "n": 8}
+{"id": "test-923", "calculator": "APACHE II Score", "correct": 0, "n": 8}
+{"id": "test-924", "calculator": "APACHE II Score", "correct": 0, "n": 8}
+{"id": "test-925", "calculator": "APACHE II Score", "correct": 0, "n": 8}
+{"id": "test-941", "calculator": "Sequential Organ Failure Assessment (SOFA) Score", "correct": 1, "n": 8}
+{"id": "test-942", "calculator": "Sequential Organ Failure Assessment (SOFA) Score", "correct": 0, "n": 8}
+{"id": "test-943", "calculator": "Sequential Organ Failure Assessment (SOFA) Score", "correct": 0, "n": 8}
+{"id": "test-944", "calculator": "Sequential Organ Failure Assessment (SOFA) Score", "correct": 0, "n": 8}
+{"id": "test-945", "calculator": "Sequential Organ Failure Assessment (SOFA) Score", "correct": 3, "n": 8}
+{"id": "test-961", "calculator": "Caprini Score for Venous Thromboembolism (2005)", "correct": 0, "n": 8}
+{"id": "test-962", "calculator": "Caprini Score for Venous Thromboembolism (2005)", "correct": 0, "n": 8}
+{"id": "test-963", "calculator": "Caprini Score for Venous Thromboembolism (2005)", "correct": 0, "n": 8}
+{"id": "test-964", "calculator": "Caprini Score for Venous Thromboembolism (2005)", "correct": 0, "n": 8}
+{"id": "test-965", "calculator": "Caprini Score for Venous Thromboembolism (2005)", "correct": 0, "n": 8}
+{"id": "test-981", "calculator": "Estimated Due Date", "correct": 0, "n": 8}
+{"id": "test-982", "calculator": "Estimated Due Date", "correct": 0, "n": 8}
+{"id": "test-983", "calculator": "Estimated Due Date", "correct": 0, "n": 8}
+{"id": "test-984", "calculator": "Estimated Due Date", "correct": 0, "n": 8}
+{"id": "test-985", "calculator": "Estimated Due Date", "correct": 0, "n": 8}
+{"id": "test-1001", "calculator": "Steroid Conversion Calculator", "correct": 2, "n": 8}
+{"id": "test-1002", "calculator": "Steroid Conversion Calculator", "correct": 6, "n": 8}
+{"id": "test-1003", "calculator": "Steroid Conversion Calculator", "correct": 5, "n": 8}
+{"id": "test-1004", "calculator": "Steroid Conversion Calculator", "correct": 3, "n": 8}
+{"id": "test-1005", "calculator": "Steroid Conversion Calculator", "correct": 2, "n": 8}
+{"id": "test-1021", "calculator": "Target weight", "correct": 8, "n": 8}
+{"id": "test-1022", "calculator": "Target weight", "correct": 5, "n": 8}
+{"id": "test-1023", "calculator": "Target weight", "correct": 8, "n": 8}
+{"id": "test-1024", "calculator": "Target weight", "correct": 7, "n": 8}
+{"id": "test-1025", "calculator": "Target weight", "correct": 7, "n": 8}
+{"id": "test-1041", "calculator": "Morphine Milligram Equivalents (MME) Calculator", "correct": 6, "n": 8}
+{"id": "test-1042", "calculator": "Morphine Milligram Equivalents (MME) Calculator", "correct": 7, "n": 8}
+{"id": "test-1043", "calculator": "Morphine Milligram Equivalents (MME) Calculator", "correct": 7, "n": 8}
+{"id": "test-1044", "calculator": "Morphine Milligram Equivalents (MME) Calculator", "correct": 5, "n": 8}
+{"id": "test-1045", "calculator": "Morphine Milligram Equivalents (MME) Calculator", "correct": 7, "n": 8}
+{"id": "test-1061", "calculator": "Estimated Date of Conception", "correct": 3, "n": 8}
+{"id": "test-1062", "calculator": "Estimated Date of Conception", "correct": 0, "n": 8}
+{"id": "test-1063", "calculator": "Estimated Date of Conception", "correct": 2, "n": 8}
+{"id": "test-1064", "calculator": "Estimated Date of Conception", "correct": 5, "n": 8}
+{"id": "test-1065", "calculator": "Estimated Date of Conception", "correct": 5, "n": 8}
+{"id": "test-1081", "calculator": "Estimated Gestational Age", "correct": 5, "n": 8}
+{"id": "test-1082", "calculator": "Estimated Gestational Age", "correct": 1, "n": 8}
+{"id": "test-1083", "calculator": "Estimated Gestational Age", "correct": 0, "n": 8}
+{"id": "test-1084", "calculator": "Estimated Gestational Age", "correct": 0, "n": 8}
+{"id": "test-1085", "calculator": "Estimated Gestational Age", "correct": 0, "n": 8}

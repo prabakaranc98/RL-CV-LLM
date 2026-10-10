@@ -1,0 +1,20 @@
+group,topic,n2024,n2025,n2026,per1k_2026,growth_24_26,growth_25_26,phase
+Perception-grounded,grounding & referring,9,20,54,81.33,1.45,1.24,crowded
+Perception-grounded,counting & numerosity,0,1,4,6.02,2.28,1.4,emerging
+Perception-grounded,"text-rich: OCR, documents, charts",5,6,25,37.65,1.17,1.83,steady
+Perception-grounded,hallucination & faithfulness,6,13,26,39.16,1.03,0.91,steady
+Spatial & geometric,spatial & 3D understanding,8,27,73,109.94,2.19,1.24,rising fast
+Spatial & geometric,"geometry, diagrams & visual math",1,2,7,10.54,1.27,1.4,too few to call
+Temporal & causal,video & temporal reasoning,18,52,92,138.55,1.27,0.82,crowded
+Temporal & causal,physical & causal reasoning,3,7,20,30.12,1.48,1.27,steady
+Temporal & causal,prediction & world models,0,0,3,4.52,1.77,3.26,emerging
+Knowledge & social,knowledge & commonsense,3,15,13,19.58,0.98,0.41,cooling
+Knowledge & social,"social, affective & intent",2,3,11,16.57,1.16,1.53,steady
+Abstract & compositional,abstract puzzles & games,0,1,5,7.53,2.78,1.71,emerging
+Abstract & compositional,compositional reasoning,3,5,7,10.54,0.54,0.63,too few to call
+Interactive,embodied planning & VLA,12,19,71,106.93,1.45,1.71,crowded
+Interactive,"agents, tools & thinking with images",6,9,39,58.73,1.54,1.93,rising fast
+Reasoning process,chain-of-thought & multi-step,4,6,35,52.71,2.0,2.54,rising fast
+Reasoning process,reasoning efficiency & adaptive thinking,0,0,1,1.51,0.76,1.4,too few to call
+Reasoning process,reasoning in generation & editing,11,21,58,87.35,1.29,1.27,crowded
+Domains,medical & scientific,4,9,25,37.65,1.43,1.25,steady

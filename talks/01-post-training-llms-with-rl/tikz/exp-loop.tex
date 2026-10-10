@@ -1,0 +1,40 @@
+% The experiment loop: one sampler, two learning signals (GRPO or OPD), one LoRA update, and the evaluation path.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+  % ---- the loop ----
+  \node[frozen, minimum width=2.5cm, text width=2.3cm] (prompts) at (0,0) {prompts\\{\footnotesize MedCalc, 16 per step}};
+  \node[block, minimum width=2.9cm, text width=2.7cm] (sampler) at (3.9,0) {sampler\\{\footnotesize JAX, bf16 copy}};
+  \node[block, minimum width=2.3cm, text width=2.1cm] (answers) at (7.5,0) {answers\\{\footnotesize $16\times 8$}};
+  \node[frozen, minimum width=3.9cm, text width=3.7cm] (grpo) at (11.6,1.15)
+    {\textbf{GRPO}: checker reward\\{\footnotesize $A=(r-\bar r)/\sigma$ per answer}};
+  \node[frozen, minimum width=3.9cm, text width=3.7cm] (opd) at (11.6,-1.15)
+    {\textbf{OPD}: teacher Qwen3-4B\\{\footnotesize $A_t=\log\pi_T-\log\pi_\theta$ per token}};
+  \node[block, minimum width=2.8cm, text width=2.6cm] (loss) at (15.85,0) {loss\\{\footnotesize token mean per answer}};
+  \node[blocka, minimum width=2.9cm, text width=2.7cm] (policy) at (19.8,0) {policy Qwen3-0.6B\\{\footnotesize LoRA $A, B$ trained}};
+  % arrows along the loop
+  \draw[flow] (prompts) -- (sampler);
+  \draw[flow] (sampler) -- (answers);
+  \node[junction] (j1) at (9.25,0) {};
+  \draw[wire] (answers) -- (j1);
+  \draw[flow] (j1) |- (grpo.west);
+  \draw[flow] (j1) |- (opd.west);
+  \node[junction] (j2) at (14.0,0) {};
+  \draw[wire] (grpo.east) -| (j2);
+  \draw[wire] (opd.east) -| (j2);
+  \draw[flow] (j2) -- (loss);
+  \draw[flowa] (loss) -- (policy);
+  % weight sync back to the sampler
+  \draw[flowa] (policy.south) -- ++(0,-2.15) -| node[pos=0.25, below, accentnote]
+    {every step: dense weights $W+\tfrac{\alpha}{r}AB$ to the sampler} (sampler.south);
+  % ---- evaluation path ----
+  \node[block, minimum width=3.4cm, text width=3.2cm] (ckpt) at (19.8,2.75) {checkpoint\\{\footnotesize every 25 steps}};
+  \node[block, minimum width=5.2cm, text width=5.0cm] (vllm) at (14.4,2.75) {vLLM evaluation\\{\footnotesize full test: 1,100 problems, 4 conditions}};
+  \draw[flow] (policy.north) -- (ckpt.south);
+  \draw[flow] (ckpt.west) -- (vllm.west -| vllm.east);
+  % labels under the boxes that hold our fixes
+  \node[note, anchor=south, text width=3.1cm, align=center] at ($(sampler.north)+(0,0.12)$) {last-token prefill,\\stop strings};
+  \node[note, anchor=north, text width=3.0cm, align=center] at ($(loss.south)+(0,-0.12)$) {log-probs in chunks\\(no full logits)};
+\end{tikzpicture}
+\end{document}

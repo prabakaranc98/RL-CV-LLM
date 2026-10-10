@@ -1,0 +1,15 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{J}{J(\theta)} \;=\; \tm{E}{\mathbb{E}_{\tau\sim\pi_\theta}}\big[\,\tm{R}{R(\tau)}\,\big],
+  \qquad
+  \tm{Rd}{R(\tau)=\textstyle\sum_{t=0}^{T} r_t}
+$};
+\anna{J}{a}{1}{0}{expected return of the policy\\with parameters $\theta$};
+\ann{R}{a}{1}{0.6}{return: the total reward\\of one trajectory};
+\ann{E}{b}{1}{0}{average over trajectories $\tau = (s_0,a_0,r_0,\dots)$\\produced by running $\pi_\theta$};
+\ann{Rd}{b}{1}{0.3}{sum of per-step rewards; for LLMs\\usually one reward at the end};
+\end{tikzpicture}
+\end{document}

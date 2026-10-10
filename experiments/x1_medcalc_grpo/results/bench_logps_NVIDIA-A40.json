@@ -1,0 +1,52 @@
+{
+ "args": {
+  "rows": 8,
+  "prompt": 1024,
+  "completion": 1024,
+  "chunk": 128
+ },
+ "results": {
+  "tunix": {
+   "train": {
+    "compile_s": 85.977287687012,
+    "step_s": 2.6393037090310827,
+    "flops": null,
+    "tflops_per_s": null,
+    "mfu": null,
+    "memory_gb": 20.399733788
+   },
+   "score": {
+    "compile_s": 21.20035151101183,
+    "step_s": 1.1487554849591106,
+    "flops": null,
+    "tflops_per_s": null,
+    "mfu": null,
+    "memory_gb": 12.724206864
+   }
+  },
+  "chunked": {
+   "train": {
+    "compile_s": 24.01127162796911,
+    "step_s": 2.6324962771032006,
+    "flops": null,
+    "tflops_per_s": null,
+    "mfu": null,
+    "memory_gb": 16.129934364
+   },
+   "score": {
+    "compile_s": 11.244340887991711,
+    "step_s": 1.0977033670060337,
+    "flops": null,
+    "tflops_per_s": null,
+    "mfu": null,
+    "memory_gb": 7.03175044
+   }
+  }
+ },
+ "agreement": {
+  "max_abs_dlogp": 0.0,
+  "mean_abs_dlogp": 0.0,
+  "max_abs_dentropy": 7.62939453125e-06,
+  "grad_rel_diff": 0.0032097525555646335
+ }
+}

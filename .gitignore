@@ -179,3 +179,16 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# Private planning notes (local only, never committed)
+notes/
+
+# Node / deck build outputs
+node_modules/
+talks/*/dist/
+
+# Experiments (jaxpt)
+scripts/pod*.env
+wandb/
+experiments/*/results/checkpoints/
+experiments/*/results/**/*.npz
+*.safetensors

@@ -1,0 +1,55 @@
+% Qwen3-0.6B: the full decoder stack (bottom -> top). Numbers from config.json and the Qwen3 report, Table 1.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, y=0.7cm, block/.append style={minimum height=0.62cm}]
+  \draw[stream] (0,0.6) -- (0,10.0);
+  \node[dims, rotate=90] at (-0.45,2.6) {$T\times 1024$};
+
+  \node[block, minimum width=2.8cm] (emb) at (0,0) {Embedding};
+  \node[note] (ids) at (0,-1.1) {token ids};
+  \draw[flow] (ids) -- (emb);
+
+  \node[block, minimum width=2.4cm] (n1) at (3.2,1.9) {RMSNorm};
+  \node[block, accent, fill=ferntint, minimum width=3.6cm, minimum height=1.05cm] (mix) at (3.2,3.5)
+    {\textbf{Attention}\\[-1pt]{\footnotesize GQA, QK-Norm, RoPE}};
+  \node[plus] (p1) at (0,4.9) {$+$};
+  \draw[flow] (0,1.0) -| (n1.south);
+  \draw[flow] (n1) -- (mix);
+  \draw[flow] (mix.north) |- (p1.east);
+
+  \node[block, minimum width=2.4cm] (n2) at (3.2,6.2) {RMSNorm};
+  \node[block, minimum width=3.6cm, minimum height=1.05cm] (ffn) at (3.2,7.8)
+    {\textbf{Feed-forward}\\[-1pt]{\footnotesize SwiGLU, $1024 \to 3072 \to 1024$}};
+  \node[plus] (p2) at (0,9.2) {$+$};
+  \draw[flow] (0,5.3) -| (n2.south);
+  \draw[flow] (n2) -- (ffn);
+  \draw[flow] (ffn.north) |- (p2.east);
+
+  \draw[grey400, line width=0.6pt] (-0.9,0.8) -- (-1.05,0.8) -- (-1.05,9.5) -- (-0.9,9.5);
+  \node[tname, left] at (-1.1,5.15) {$\times 28$};
+
+  \node[block, minimum width=2.8cm] (nf) at (0,10.5) {RMSNorm};
+  \node[block, minimum width=2.8cm] (head) at (0,11.7) {LM head};
+  \node[note] (logits) at (0,12.8) {a score for each of the 151,936 tokens};
+  \draw[flow] (nf) -- (head);
+  \draw[flow] (head) -- (logits);
+  \draw[grey400, line width=0.6pt, densely dashed, -{Stealth[length=4pt]}] (emb.west) to[out=180,in=180, looseness=0.45] (head.west);
+
+  \mk{(0.45,7.2)}{1};
+  \mk{($(emb.north east)+(0.12,0.05)$)}{2};
+  \mka{($(mix.north east)+(0.12,0.05)$)}{3};
+  \mk{($(p1.west)+(-0.35,0)$)}{4};
+  \mk{($(ffn.north east)+(0.12,0.05)$)}{5};
+  \mk{($(head.north east)+(0.12,0.05)$)}{6};
+
+  \notesat{(6.4,13.1)}{7.6cm}
+  \note{1}{\textbf{Residual stream}: one vector of 1,024 numbers per token, carried through all 28 layers.};
+  \note{2}{\textbf{Embedding}: a $151{,}936 \times 1024$ table; row $i$ is the vector for token $i$.};
+  \notea{3}{\textbf{Attention}: the only place where tokens exchange information. 16 query heads share 8 key/value heads (GQA).};
+  \note{4}{\textbf{Add back}: each sublayer adds its output, $h \leftarrow h + f(\mathrm{RMSNorm}(h))$. Nothing is overwritten.};
+  \note{5}{\textbf{Feed-forward}: works on each token separately; 9.4M of the 15.7M weights in each layer (60\%).};
+  \note{6}{\textbf{LM head}: reuses the embedding matrix (tied weights) to score every token in the vocabulary.};
+  \symbols{$T$ & number of tokens in the sequence \\ $d$ & width of each token vector (1,024) \\ $L$ & number of decoder layers (28) \\ $|\mathcal{V}|$ & vocabulary size (151,936)};
+\end{tikzpicture}
+\end{document}

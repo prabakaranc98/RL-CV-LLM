@@ -1,0 +1,33 @@
+% How RL on checkable answers arrived. Events are evenly spaced in order (not to scale in time).
+% Every row is checked against the paper (see notes/06-post-training-lineage.md).
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+    ev/.style={block, text width=3.55cm, align=left, inner sep=5pt, font=\footnotesize},
+    eva/.style={ev, accent, fill=ferntint},
+    date/.style={font=\footnotesize\bfseries, text=grey700}]
+  \def\dx{2.25}
+  \draw[grey400, line width=1pt] (-0.4,0) -- ({7*\dx+0.4},0);
+  \foreach \k/\d/\side/\sty/\txt in {
+      0/Aug 2017/a/ev/{\textbf{Seq2SQL}: policy gradient with an execution reward (run the SQL, compare the result)},
+      1/Mar 2022/b/ev/{\textbf{STaR}: keep the rationales that reach the right answer; "an approximation to" policy gradient},
+      2/Jul 2022/a/ev/{\textbf{CodeRL}: unit-test results as the reward, actor--critic},
+      3/Jan 2024/b/ev/{\textbf{ReFT}: SFT, then PPO with a reward for the correct final answer},
+      4/Feb 2024/a/eva/{\textbf{DeepSeekMath}: introduces GRPO; its reward is a \emph{learned} reward model},
+      5/Sep 2024/b/ev/{\textbf{OpenAI o1}: RL for long reasoning; better with more RL and more thinking time},
+      6/Nov 2024/a/ev/{\textbf{T\"ulu 3}: names RLVR; PPO, with a reward when the answer verifies},
+      7/Jan 2025/b/eva/{\textbf{DeepSeek-R1-Zero}: GRPO with rule-only rewards (accuracy and format), from the base model}} {
+    \fill[grey700] ({\k*\dx},0) circle (2.4pt);
+    \if\side a
+      \node[date, anchor=north] at ({\k*\dx},-0.15) {\d};
+      \node[\sty, anchor=south] (e\k) at ({\k*\dx},0.75) {\txt};
+      \draw[grey400, line width=0.6pt] ({\k*\dx},0.08) -- (e\k.south);
+    \else
+      \node[date, anchor=south] at ({\k*\dx},0.15) {\d};
+      \node[\sty, anchor=north] (e\k) at ({\k*\dx},-0.75) {\txt};
+      \draw[grey400, line width=0.6pt] ({\k*\dx},-0.08) -- (e\k.north);
+    \fi
+  }
+\end{tikzpicture}
+\end{document}

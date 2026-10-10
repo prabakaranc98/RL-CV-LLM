@@ -1,0 +1,12 @@
+{
+  "name": "problem-survey-deck",
+  "private": true,
+  "description": "Marp deck: the CVPR and ACL problem landscape",
+  "scripts": {
+    "build": "./build.sh",
+    "preview": "./build.sh --png"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  }
+}

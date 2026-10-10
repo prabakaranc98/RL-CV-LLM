@@ -1,0 +1,36 @@
+% How information moves in a decoder-only transformer: per-token streams, causal attention, per-token MLP.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, x=1.75cm, y=0.8cm]
+  \foreach \w [count=\i from 0] in {The, cat, sat, on, the} {
+    \node[block, minimum width=1.25cm] (t\i) at (\i,0) {\w};
+    \draw[stream] (\i,0.55) -- (\i,9.0);
+  }
+  % one attention layer: the last position reads from every earlier position (arcs)
+  \foreach \i in {0,1,2,3} {
+    \fill[fern] (\i,2.2) circle (2.2pt);
+    \draw[flowa, line width=0.9pt] (\i,2.2) to[out=55,in=125] (3.96,2.32);
+  }
+  \node[dims, anchor=east] at (-0.42,2.2) {attention};
+  % MLP row
+  \foreach \i in {0,...,4}
+    \node[block, minimum width=1.05cm, minimum height=0.55cm, font=\footnotesize] (m\i) at (\i,6.1) {MLP};
+  \node[font=\footnotesize, text=grey400] at (2,7.5) {$\vdots$\quad the same two steps in every layer\quad$\vdots$};
+  % predictions
+  \foreach \i/\w in {0/cat,1/sat,2/on,3/the} \node[note, text=grey500] at (\i,9.55) {$\to$ \textit{\w}};
+  \node[block, accent, fill=ferntint, minimum width=1.4cm] (o4) at (4,9.65) {$\to$ \textit{mat}};
+  \draw[flow] (4,9.0) -- (o4.south);
+
+  \mk{($(t0.north)+(-0.3,0.9)$)}{1};
+  \mka{(-0.42,2.95)}{2};
+  \mk{($(m4.east)+(0.25,0)$)}{3};
+  \mk{($(o4.east)+(0.25,0)$)}{4};
+
+  \notesat{(5.1,10.4)}{6.6cm}
+  \note{1}{\textbf{One stream per token}: each position keeps its own vector; every layer adds to it.};
+  \notea{2}{\textbf{Attention}: a position reads from itself and from \emph{earlier} positions only (the causal mask). Drawn here for the last position. It is the only step that moves information between tokens.};
+  \note{3}{\textbf{MLP}: the same network, applied to every position separately.};
+  \note{4}{\textbf{Next-token prediction}: every position predicts the token after it. During generation only the last prediction is used.};
+\end{tikzpicture}
+\end{document}

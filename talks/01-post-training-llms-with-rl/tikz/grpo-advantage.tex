@@ -1,0 +1,15 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{A}{\hat{A}_i} \;=\;
+  \dfrac{\tm{r}{r_i} \;-\; \tm{mu}{\color{fern}\operatorname{mean}(r_1,\dots,r_G)}}
+        {\tm{sd}{\color{grey500}\operatorname{std}(r_1,\dots,r_G)}}
+$};
+\ann{A}{l}{1}{0}{advantage of\\response $i$, shared\\by all its tokens};
+\ann{r}{a}{1}{-0.3}{its reward:\\1 if correct, 0 if not};
+\anna{mu}{a}{2}{0.6}{baseline: the mean reward of the\\$G$ responses to the same prompt};
+\ann{sd}{b}{1}{0}{spread of the group's rewards: puts every\\prompt on the same scale};
+\end{tikzpicture}
+\end{document}

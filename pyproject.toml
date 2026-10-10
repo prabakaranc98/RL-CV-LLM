@@ -1,0 +1,18 @@
+[project]
+name = "jaxpt"
+version = "0.1.0"
+description = "Small-model post-training in plain JAX: GRPO and on-policy distillation"
+requires-python = ">=3.10"
+dependencies = ["jax", "optax", "numpy", "safetensors", "huggingface_hub", "transformers", "jinja2", "pyarrow", "wandb"]
+
+[project.optional-dependencies]
+parity = ["torch"]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jaxpt*"]

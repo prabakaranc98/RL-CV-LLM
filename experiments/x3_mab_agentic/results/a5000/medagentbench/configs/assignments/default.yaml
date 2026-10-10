@@ -1,0 +1,38 @@
+import: definition.yaml
+
+concurrency:
+  task:
+    medagentbench-std: 20
+  agent:
+    gpt-4o-mini: 10
+    gpt-4o: 10
+    o1-mini: 10
+    gemini-2.0: 1
+    llama-3.3: 1
+    deepseekv3: 1
+    qwen2.5: 5
+    gemma2: 5
+    mistral: 5
+    claude3.5: 1
+    qwen3-0.6b: 10
+    qwen3-1.7b: 10
+    qwen3-4b: 10
+    do-nothing: 10
+    qwen3-0.6b-r2: 10
+
+assignments: # List[Assignment] | Assignment
+  - agent: # "task": List[str] | str ,  "agent": List[str] | str
+      - qwen3-0.6b-r2
+#      - gemini-2.0
+#      - llama-3.3
+#      - gpt-4o
+#      - deepseekv3
+#      - qwen2.5
+#      - gemma2
+#      - mistral
+#      - claude3.5
+#      - o1-mini
+    task:
+      - medagentbench-std
+
+output: "outputs/MedAgentBenchv1"

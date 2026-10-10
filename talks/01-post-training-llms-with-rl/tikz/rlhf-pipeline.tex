@@ -1,0 +1,28 @@
+% RLHF in three steps (after Ouyang et al. 2022, Fig. 2), top -> bottom in each column.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, block/.append style={minimum width=4.3cm, minimum height=0.95cm, text width=4.0cm}]
+  \foreach \c/\t in {0/{1 \; Supervised fine-tuning}, 5.4/{2 \; Reward model}, 10.8/{3 \; RL with PPO}}
+    \node[font=\normalsize\bfseries, text=ink] at (\c,0.9) {\t};
+  % column 1
+  \node[block] (a1) at (0,0) {a prompt is sampled};
+  \node[block] (a2) at (0,-1.6) {a person writes the desired response};
+  \node[block] (a3) at (0,-3.2) {the pretrained model is fine-tuned on these examples};
+  \node[block, draw=ink, line width=1.0pt] (a4) at (0,-4.8) {SFT model $\pi_{\mathrm{SFT}}$};
+  % column 2
+  \node[block] (b1) at (5.4,0) {a prompt and several model responses};
+  \node[block] (b2) at (5.4,-1.6) {a person ranks the responses};
+  \node[block] (b3) at (5.4,-3.2) {a reward model is trained on the comparisons};
+  \node[block, draw=ink, line width=1.0pt] (b4) at (5.4,-4.8) {reward model $r_\phi$};
+  % column 3
+  \node[block] (c1) at (10.8,0) {a new prompt is sampled};
+  \node[blocka] (c2) at (10.8,-1.6) {the policy $\pi_\theta$ writes a response};
+  \node[block] (c3) at (10.8,-3.2) {the reward model scores it};
+  \node[blocka] (c4) at (10.8,-4.8) {PPO updates $\pi_\theta$, with a KL penalty to $\pi_{\mathrm{SFT}}$};
+  \foreach \k in {a,b,c} {\draw[flow] (\k1) -- (\k2); \draw[flow] (\k2) -- (\k3); \draw[flow] (\k3) -- (\k4);}
+  % hand-offs along the bottom
+  \draw[flow] (a4.south) -- ++(0,-0.5) -| node[pos=0.25, below, dims] {initializes the policy and the reference} (c4.south);
+  \draw[flow] (b4.east) -- ++(0.35,0) |- (c3.west);
+\end{tikzpicture}
+\end{document}

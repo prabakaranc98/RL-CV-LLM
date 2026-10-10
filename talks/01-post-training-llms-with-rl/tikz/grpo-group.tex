@@ -1,0 +1,37 @@
+% GRPO on one prompt: G = 4 sampled answers, checked, standardized within the group.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, y=1.05cm,
+  ans/.style={block, minimum width=3.9cm, minimum height=0.8cm, font=\small},
+  chip/.style={rounded corners=7pt, minimum width=1.25cm, minimum height=0.55cm, font=\small\bfseries, text=white, inner sep=0pt}]
+  \foreach \x/\t in {0/prompt, 4.0/{$G = 4$ sampled answers}, 7.3/check, 8.9/reward, 10.6/advantage, 12.9/update}
+    \node[dims, font=\small] at (\x,1.15) {\t};
+  \node[block, minimum width=2.4cm, minimum height=1.2cm, fill=grey100, font=\normalsize] (q) at (0,-1.5) {What is\\$17\times 24$?};
+  \draw[wire] (q.east) -- (1.75,-1.5);
+  \node[junction] at (1.75,-1.5) {};
+  \draw[wire] (1.75,0) -- (1.75,-3);
+  \foreach \i/\v/\ok/\r/\a in {0/408/1/1/{+1.0}, 1/418/0/0/{$-$1.0}, 2/398/0/0/{$-$1.0}, 3/408/1/1/{+1.0}} {
+    \pgfmathsetmacro{\y}{-\i}
+    \node[ans] (a\i) at (4.0,\y) {\dots\ so the answer is \textbf{\v}};
+    \draw[flow] (1.75,\y) -- (a\i.west);
+    \draw[grey300, line width=0.8pt] (a\i.east) -- (6.95,\y);
+    \ifnum\ok=1
+      \node[circle, fill=fern, minimum size=0.55cm, inner sep=0pt] (c\i) at (7.3,\y) {};
+      \draw[white, line width=1.6pt] (7.17,\y) -- (7.27,\y-0.1) -- (7.45,\y+0.12);
+      \node[chip, fill=fern] at (10.6,\y) {\a};
+      \draw[flowa, line width=1.3pt] (11.75,\y-0.18) -- (11.75,\y+0.2);
+      \node[note, anchor=west, text=ferndark] at (11.95,\y) {more likely};
+    \else
+      \node[circle, draw=grey500, line width=0.9pt, minimum size=0.53cm, inner sep=0pt] (c\i) at (7.3,\y) {};
+      \draw[grey500, line width=1.3pt] (7.2,\y-0.1) -- (7.4,\y+0.1) (7.2,\y+0.1) -- (7.4,\y-0.1);
+      \node[chip, fill=grey700] at (10.6,\y) {\a};
+      \draw[flow, line width=1.3pt] (11.75,\y+0.2) -- (11.75,\y-0.18);
+      \node[note, anchor=west] at (11.95,\y) {less likely};
+    \fi
+    \node[font=\normalsize] at (8.9,\y) {$r = \r$};
+  }
+  \draw[grey400, line width=0.6pt] (8.4,-3.5) -- (8.4,-3.62) -- (11.2,-3.62) -- (11.2,-3.5);
+  \node[note, anchor=north] at (9.8,-3.72) {group mean $0.5$, standard deviation $0.5$: \;$\hat A_i = (r_i - 0.5)/0.5$};
+\end{tikzpicture}
+\end{document}

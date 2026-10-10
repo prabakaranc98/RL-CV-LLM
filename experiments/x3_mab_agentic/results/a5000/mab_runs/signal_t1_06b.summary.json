@@ -1,0 +1,89 @@
+{
+ "args": {
+  "mab": "/root/MedAgentBench",
+  "tasks": "/root/mab_train/train_official.json",
+  "name": "signal_t1_06b",
+  "out": "/root/mab_runs",
+  "url": "http://localhost:8011/v1/chat/completions",
+  "model": "Qwen/Qwen3-0.6B",
+  "samples": 8,
+  "temperature": 1.0,
+  "top_p": null,
+  "top_k": null,
+  "max_tokens": 256,
+  "max_reply_chars": null,
+  "workers": 48
+ },
+ "by_type": {
+  "task1": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task2": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task3": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task4": {
+   "tasks": 21,
+   "official_mean": 1.75,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 21
+  },
+  "task5": {
+   "tasks": 20,
+   "official_mean": 6.375,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task6": {
+   "tasks": 20,
+   "official_mean": 0.5,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task7": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 20
+  },
+  "task8": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  },
+  "task9": {
+   "tasks": 21,
+   "official_mean": 0.125,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 3
+  },
+  "task10": {
+   "tasks": 21,
+   "official_mean": 0.0,
+   "reward_mean": 0.0,
+   "reward_any": 0,
+   "get_ok_any": 0
+  }
+ }
+}

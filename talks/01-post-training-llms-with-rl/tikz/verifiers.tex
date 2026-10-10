@@ -1,0 +1,28 @@
+% Rule-based verification: a program, not a learned model, turns a response into a reward.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\newfontfamily\menlo{Menlo}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+    resp/.style={block, minimum width=6.2cm, text width=5.9cm, minimum height=1.05cm, align=left, inner sep=5pt},
+    chk/.style={frozen, minimum width=5.6cm, text width=5.3cm, minimum height=1.05cm, align=left, inner sep=5pt, font=\footnotesize},
+    rew/.style={circle, draw=fern, line width=1.2pt, fill=ferntint, minimum size=0.75cm, font=\normalsize\bfseries, text=ferndark},
+    dom/.style={font=\small\bfseries, anchor=west, align=left, text width=2.3cm},
+    hdr/.style={font=\footnotesize\bfseries, text=grey500}]
+  \node[hdr] at (5.6,0.95) {the model's response};
+  \node[hdr] at (12.25,0.95) {the checker: a short program};
+  \node[hdr] at (16.1,0.95) {reward};
+  \foreach \y/\d/\r/\c [count=\k] in {
+      0/{Math}/{{\footnotesize\dots\ so she has $3 + 6 = 9$.}\\{\menlo\footnotesize The answer is \textbackslash boxed\{9\}}}/{extract the boxed answer; compare it with the reference $9$, as numbers or as symbolic expressions},
+      -1.45/{Code}/{{\menlo\footnotesize def add(a, b):}\\{\menlo\footnotesize \ \ \ \ return a + b}}/{run the unit tests, e.g. {\menlo add(2, 3) == 5}; pass only if every test passes},
+      -2.9/{Instruction\\following}/{{\footnotesize prompt: \emph{use exactly three bullet points}}\\{\footnotesize $\bullet$ \dots\quad $\bullet$ \dots\quad $\bullet$ \dots}}/{count the bullet points; pass if there are exactly three},
+      -4.35/{Format}/{{\menlo\footnotesize <think> \dots\ </think>}\\{\footnotesize then the final answer}}/{is the reasoning wrapped in the think tags? (a small reward of its own)}} {
+    \node[dom] at (0,\y) {\d};
+    \node[resp] (r\k) at (5.6,\y) {\r};
+    \node[chk] (c\k) at (12.25,\y) {\c};
+    \node[rew] (w\k) at (16.1,\y) {1};
+    \draw[flow] (r\k) -- (c\k); \draw[flowa] (c\k) -- (w\k);
+  }
+  \node[dims, anchor=north, align=center] at (16.1,-4.95) {$0$ if the\\check fails};
+\end{tikzpicture}
+\end{document}

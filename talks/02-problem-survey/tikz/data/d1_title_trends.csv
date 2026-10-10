@@ -1,0 +1,37 @@
+venue,year,topic,share_pct,count,n
+CVPR,2024,RL post-training,0.33,9,2716
+CVPR,2024,reasoning,0.85,23,2716
+CVPR,2024,agents,0.37,10,2716
+CVPR,2024,names a language model,6.0,163,2716
+CVPR,2024,benchmark / dataset,3.94,107,2716
+CVPR,2024,distillation,2.58,70,2716
+CVPR,2025,RL post-training,0.35,10,2871
+CVPR,2025,reasoning,1.5,43,2871
+CVPR,2025,agents,1.01,29,2871
+CVPR,2025,names a language model,10.0,287,2871
+CVPR,2025,benchmark / dataset,5.26,151,2871
+CVPR,2025,distillation,1.99,57,2871
+CVPR,2026,RL post-training,2.65,107,4042
+CVPR,2026,reasoning,5.86,237,4042
+CVPR,2026,agents,2.42,98,4042
+CVPR,2026,names a language model,12.57,508,4042
+CVPR,2026,benchmark / dataset,5.89,238,4042
+CVPR,2026,distillation,1.98,80,4042
+ACL,2024,RL post-training,1.38,13,940
+ACL,2024,reasoning,6.81,64,940
+ACL,2024,agents,3.83,36,940
+ACL,2024,names a language model,45.53,428,940
+ACL,2024,benchmark / dataset,9.47,89,940
+ACL,2024,distillation,1.38,13,940
+ACL,2025,RL post-training,1.0,17,1699
+ACL,2025,reasoning,7.59,129,1699
+ACL,2025,agents,6.18,105,1699
+ACL,2025,names a language model,46.56,791,1699
+ACL,2025,benchmark / dataset,10.06,171,1699
+ACL,2025,distillation,1.47,25,1699
+ACL,2026,RL post-training,7.19,165,2296
+ACL,2026,reasoning,16.59,381,2296
+ACL,2026,agents,12.46,286,2296
+ACL,2026,names a language model,41.81,960,2296
+ACL,2026,benchmark / dataset,10.63,244,2296
+ACL,2026,distillation,1.31,30,2296

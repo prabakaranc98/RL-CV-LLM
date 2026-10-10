@@ -1,0 +1,19 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\large]
+\node[font=\Large\bfseries, text=ink] at (4,4.2) {General RL};
+\node[blkf, minimum width=40mm, minimum height=19mm] (ag) at (0,0) {\textbf{Agent}\\[3pt] policy $\pi_\theta(a\mid s)$};
+\node[blkg, minimum width=40mm, minimum height=19mm] (en) at (8,0) {\textbf{Environment}\\[3pt] e.g.\ a game or a robot};
+\draw[arf] (ag.north) to[out=55,in=125] node[midway, above, text=ferndark] {action $a_t$} (en.north);
+\draw[ar] (en.south) to[out=-125,in=-55] node[midway, below, text=gray7] {next state $s_{t+1}$, reward $r_t$} (ag.south);
+
+\begin{scope}[xshift=14cm]
+\node[font=\Large\bfseries, text=ink] at (4,4.2) {The same loop for an LLM};
+\node[blkf, minimum width=40mm, minimum height=19mm] (ag2) at (0,0) {\textbf{Language model}\\[3pt] $\pi_\theta(y_t\mid x, y_{<t})$};
+\node[blkg, minimum width=40mm, minimum height=19mm] (en2) at (8,0) {\textbf{Environment}\\[3pt] appends the token;\\ scores the final response};
+\draw[arf] (ag2.north) to[out=55,in=125] node[midway, above, text=ferndark] {next token $y_t$} (en2.north);
+\draw[ar] (en2.south) to[out=-125,in=-55] node[midway, below, text=gray7, align=center] {new state $(x, y_{\le t})$;\ reward $r(x,y)$ at the end} (ag2.south);
+\end{scope}
+\end{tikzpicture}
+\end{document}

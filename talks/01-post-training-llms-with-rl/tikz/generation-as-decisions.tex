@@ -1,0 +1,29 @@
+% Generating a response as a sequence of decisions (state, action, reward).
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\normalsize,
+  tok/.style = {block, minimum width=1.05cm, minimum height=0.85cm, font=\normalsize},
+  under/.style = {decorate, decoration={brace, mirror, amplitude=6pt, raise=6pt}, line width=0.9pt, draw=grey500},
+  lab/.style = {font=\small, text=grey700, align=center},
+]
+  \node[block, minimum height=0.85cm, fill=grey100, font=\normalsize] (q) at (0,0) {prompt $x$: \textit{What is 17 × 24?}};
+  \foreach \t [count=\i] in {17, ×, 24, =} \node[tok] (t\i) at ({2.95+(\i-1)*1.3},0) {\t};
+  \node[tok, accent, fill=ferntint, font=\normalsize\bfseries] (t5) at ({2.95+4*1.3},0) {408};
+  \node[block, fill=grey100, minimum height=0.85cm, minimum width=1.9cm, font=\normalsize] (chk) at (10.75,0) {checker};
+  \node[font=\large, text=ferndark] (rw) at (13.25,0) {$r(x,y)=1$};
+  \draw[flow] (t5) -- (chk);
+  \draw[flow] (chk) -- (rw);
+  % policy and its bus
+  \node[blocka, minimum height=0.9cm, minimum width=3.6cm, font=\normalsize] (pol) at (5.55,2.3) {\textbf{policy} $\pi_\theta$ (the LLM)};
+  \draw[wire] (pol.south) -- (5.55,1.25);
+  \draw[wire] (t1.north |- 0,1.25) -- (t5.north |- 0,1.25);
+  \foreach \i in {1,...,5} \draw[flow] (t\i.north |- 0,1.25) -- (t\i.north);
+  \node[junction] at (5.55,1.25) {};
+  \node[dims, anchor=west] at ($(pol.east)+(0.2,0)$) {chooses one token at a time, left to right};
+  % braces
+  \draw[under] (q.south west) -- (t4.south east) node[midway, below=15pt, lab] {\textbf{state} $s_t = (x, y_{<t})$: the prompt and the tokens so far};
+  \draw[under] (t5.south west) -- (t5.south east) node[midway, below=15pt, lab] {\textbf{action} $a_t = y_t$};
+  \draw[under] (chk.south west) -- (rw.south east) node[midway, below=15pt, lab] {\textbf{reward}: one score for\\the finished response $y$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\Large, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{L}{\mathcal{L}(\theta)} = \tm{E}{\mathbb{E}_{(x, y^\star)\sim\mathcal{D}}}\;
+  \tm{Ey}{\mathbb{E}_{\hat y\sim\pi_\theta(\cdot\mid x)}}\Big[\,
+  \tm{avg}{\tfrac{1}{|\hat y|}\textstyle\sum_{t}}\;
+  \tm{K}{\mathrm{KL}}\big(\,\tm{T}{\color{grey500}\pi_{\mathrm{ref}}(\cdot\mid x, y^\star, \hat y_{<t})}\;\big\|\;\tm{S}{\color{fern}\pi_\theta(\cdot\mid x, \hat y_{<t})}\,\big)\Big]
+$};
+\ann{L}{a}{1}{-0.2}{loss for the\\student};
+\ann{Ey}{a}{2}{0}{one response sampled by the student (on-policy)};
+\ann{T}{a}{1}{0}{teacher: the frozen initial model,\\given the reference solution $y^\star$};
+\anna{S}{b}{1}{0.4}{student: the model being trained,\\given only the problem};
+\ann{E}{b}{1}{-0.5}{problems with\\reference solutions};
+\ann{K}{b}{2}{0}{forward KL over the whole vocabulary, at every position};
+\end{tikzpicture}
+\end{document}

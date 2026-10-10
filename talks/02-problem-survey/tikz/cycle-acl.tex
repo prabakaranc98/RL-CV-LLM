@@ -1,0 +1,34 @@
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, card/.style={draw=grey300, line width=0.7pt, rounded corners=4pt, fill=white, inner xsep=7pt, inner ysep=6pt, anchor=north west, align=left}]
+\node[card] (c0) at (0,0) {\textbf{\color{ink}emerging}\\[-1pt]{\footnotesize\color{grey500}small, share rising}\\[5pt]{\color{grey700}multi-agent \& debate}\;{\footnotesize\color{grey500}68}\\{\color{grey700}medical \& clinical}\;{\footnotesize\color{grey500}57}\\{\color{grey700}reasoning efficiency}\;{\footnotesize\color{grey500}18}};
+\coordinate (s0) at ([yshift=1.0cm]c0.north);
+\node[card] (c1) at ([xshift=0.3cm]c0.north east) {\textbf{\color{ink}rising fast}\\[-1pt]{\footnotesize\color{grey500}large, share rising}\\[5pt]{\color{grey700}agents \& tool use}\;{\footnotesize\color{grey500}309}\\{\color{grey700}retrieval \& RAG}\;{\footnotesize\color{grey500}187}\\{\color{grey700}preference alignment}\;{\footnotesize\color{grey500}183}\\{\color{grey700}RL post-training}\;{\footnotesize\color{grey500}162}\\{\color{grey700}knowledge \& memory}\;{\footnotesize\color{grey500}106}\\{\color{grey700}long reasoning \& test-time}\;{\footnotesize\color{grey500}98}\\{\color{grey700}safety \& jailbreaks}\;{\footnotesize\color{grey500}97}\\{\color{grey700}compression \& KV cache}\;{\footnotesize\color{grey500}84}};
+\coordinate (s1) at ([yshift=2.7cm]c1.north);
+\node[card] (c2) at ([xshift=0.3cm]c1.north east) {\textbf{\color{ink}crowded}\\[-1pt]{\footnotesize\color{grey500}largest, share flat}\\[5pt]{\color{grey700}evaluation \& benchmarks}\;{\footnotesize\color{grey500}363}\\{\color{grey700}vision-language}\;{\footnotesize\color{grey500}304}\\{\color{grey700}code \& SQL}\;{\footnotesize\color{grey500}128}\\{\color{grey700}dialogue \& persona}\;{\footnotesize\color{grey500}112}};
+\coordinate (s2) at ([yshift=3.7cm]c2.north);
+\node[card] (c3) at ([xshift=0.3cm]c2.north east) {\textbf{\color{ink}cooling}\\[-1pt]{\footnotesize\color{grey500}share fell in 2026}\\[5pt]{\color{grey700}culture \& values}\;{\footnotesize\color{grey500}60}\\{\color{grey700}bias \& fairness}\;{\footnotesize\color{grey500}46}\\{\color{grey700}long context}\;{\footnotesize\color{grey500}41}};
+\coordinate (s3) at ([yshift=2.3cm]c3.north);
+\node[card] (c4) at ([xshift=0.3cm]c3.north east) {\textbf{\color{ink}declining}\\[-1pt]{\footnotesize\color{grey500}share fell since 2024}\\[5pt]{\color{grey700}multilingual \& MT}\;{\footnotesize\color{grey500}115}\\{\color{grey700}commonsense \& multi-hop}\;{\footnotesize\color{grey500}67}\\{\color{grey700}synthetic data}\;{\footnotesize\color{grey500}28}};
+\coordinate (s4) at ([yshift=0.9cm]c4.north);
+\node[card] (c5) at ([xshift=0.3cm]c4.north east) {\textbf{\color{ink}steady}\\[-1pt]{\footnotesize\color{grey500}mid-size, share flat}\\[5pt]{\color{grey700}hallucination}\;{\footnotesize\color{grey500}86}\\{\color{grey700}speech \& audio}\;{\footnotesize\color{grey500}79}\\{\color{grey700}interpretability}\;{\footnotesize\color{grey500}77}\\{\color{grey700}causal, temporal, spatial}\;{\footnotesize\color{grey500}74}\\{\color{grey700}logical \& symbolic}\;{\footnotesize\color{grey500}67}\\{\color{grey700}uncertainty}\;{\footnotesize\color{grey500}52}\\{\color{grey700}legal, finance, education}\;{\footnotesize\color{grey500}41}\\{\color{grey700}creativity \& writing}\;{\footnotesize\color{grey500}36}\\{\color{grey700}planning}\;{\footnotesize\color{grey500}34}\\{\color{grey700}distillation}\;{\footnotesize\color{grey500}30}\\{\color{grey700}math reasoning}\;{\footnotesize\color{grey500}28}\\{\color{grey700}diversity}\;{\footnotesize\color{grey500}12}};
+\coordinate (s5) at ([yshift=1.8cm]c5.north);
+\coordinate (s-) at ([xshift=-0.1cm, yshift=0.45cm]c0.north west);
+\coordinate (s+) at ([yshift=1.9cm]c5.north east);
+\draw[acl, line width=2pt] plot[smooth, tension=0.55] coordinates {(s-) (s0) (s1) (s2) (s3) (s4) (s5) (s+)};
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s0) -- (c0.north);
+\fill[white, draw=acl, line width=1.2pt] (s0) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s1) -- (c1.north);
+\fill[white, draw=acl, line width=1.2pt] (s1) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s2) -- (c2.north);
+\fill[white, draw=acl, line width=1.2pt] (s2) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s3) -- (c3.north);
+\fill[white, draw=acl, line width=1.2pt] (s3) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s4) -- (c4.north);
+\fill[white, draw=acl, line width=1.2pt] (s4) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s5) -- (c5.north);
+\fill[white, draw=acl, line width=1.2pt] (s5) circle (3.2pt);
+\node[anchor=south west, font=\footnotesize, text=grey500] at ([yshift=3.6cm]c0.north west) {attention $\uparrow$};
+\end{tikzpicture}
+\end{document}

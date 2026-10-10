@@ -1,0 +1,13 @@
+grpo-c-lora32 step0 C greedy exit=0 wall=205s
+grpo-c-lora32 step25 C greedy exit=0 wall=113s
+grpo-c-lora32 step50 C greedy exit=0 wall=114s
+grpo-c-lora32 step75 C greedy exit=0 wall=112s
+grpo-c-lora32 step100 C greedy exit=0 wall=116s
+grpo-c-lora32 per-calculator values exit=0 wall=225s
+grpo-c-lora32 per-calculator note exit=0 wall=332s
+grpo-c-lora32 generic values exit=0 wall=115s
+grpo-c-lora32 generic note exit=0 wall=216s
+EVAL DONE grpo-c-lora32
+grpo-c-lora32 sampled exit=0
+grpo-c sampled exit=0
+SAMPLED DONE

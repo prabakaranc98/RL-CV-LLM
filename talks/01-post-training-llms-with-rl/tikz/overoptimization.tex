@@ -1,0 +1,27 @@
+% Reward hacking, drawn: the reward model's score keeps rising while true quality peaks and falls.
+% Schematic after Gao, Schulman & Hilton (2022), Figure 1; curves and constants are illustrative.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, x=1.2cm, y=1.15cm]
+  \pgfmathsetmacro{\dpk}{4.4}   % gold peak, from d/dd [d(1 - 0.4 ln(1+d))] = 0
+  % over-optimization region
+  \fill[grey100] (\dpk,0) rectangle (10.3,4.4);
+  \node[font=\footnotesize, text=grey700, align=left, anchor=west] at (7.4,2.2)
+    {\textbf{reward hacking}\\the score still rises;\\true quality falls};
+  % axes
+  \draw[grey400, line width=0.6pt] (0,4.5) -- (0,0) -- (10.4,0);
+  \node[font=\small, text=grey700, anchor=north] at (5.2,-0.25) {how far the policy has moved from where it started ($\sqrt{\mathrm{KL}}$)};
+  \node[font=\small, text=grey700, rotate=90, anchor=south] at (-0.25,2.2) {reward (illustrative units)};
+  % curves
+  \draw[grey500, line width=1.6pt, dashed, domain=0:10, samples=80] plot (\x, {\x*(1-0.25*ln(1+\x))});
+  \draw[fern, line width=2pt, domain=0:10, samples=80] plot (\x, {\x*(1-0.4*ln(1+\x))});
+  % best stopping point
+  \draw[grey500, densely dotted, line width=0.8pt] (\dpk,0) -- (\dpk,{\dpk*(1-0.4*ln(1+\dpk))});
+  \fill[fern] (\dpk,{\dpk*(1-0.4*ln(1+\dpk))}) circle (2.6pt);
+  \node[font=\footnotesize, text=ferndark, anchor=south east, align=right] at ({\dpk-0.1},0.1) {best point\\to stop};
+  % direct labels at the right end of each curve
+  \node[font=\small, text=grey700, anchor=west, align=left] at (10.5,{10*(1-0.25*ln(11))}) {the reward model's score\\(what RL maximizes)};
+  \node[font=\small, text=ferndark, anchor=west, align=left] at (10.5,{10*(1-0.4*ln(11))}) {true quality\\(a held-out judge)};
+\end{tikzpicture}
+\end{document}

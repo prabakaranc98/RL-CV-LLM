@@ -1,0 +1,637 @@
+{
+ "variant": "per-calculator_note",
+ "args": {
+  "shots": "per-calculator",
+  "input": "note",
+  "n": 64,
+  "batch": 16,
+  "prompts": 8,
+  "group": 8,
+  "max_prompt": 2048,
+  "max_new": 1024
+ },
+ "prompt_tokens": {
+  "train": {
+   "p50": 2058,
+   "p90": 3023,
+   "p99": 4019,
+   "max": 4871,
+   "fits": {
+    "1024": 0.10647181628392484,
+    "1536": 0.24890871133042322,
+    "2048": 0.4955399506547732,
+    "3072": 0.9086164357563105
+   }
+  },
+  "test": {
+   "p50": 2023,
+   "p90": 3013,
+   "p99": 4180,
+   "max": 4567,
+   "fits": {
+    "1024": 0.22727272727272727,
+    "1536": 0.3009090909090909,
+    "2048": 0.5154545454545455,
+    "3072": 0.9172727272727272
+   }
+  }
+ },
+ "greedy": {
+  "n": 64,
+  "wall_s": 101.66165447235107,
+  "same_text": 0.078125,
+  "same_answer": 0.734375,
+  "tunix_reward": 0.34375,
+  "vllm_reward": 0.359375,
+  "rows": [
+   {
+    "id": "test-23",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-24",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 100.0,
+    "vllm_parsed": 10.99999
+   },
+   {
+    "id": "test-25",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-26",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-27",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-28",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-29",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-31",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-32",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-33",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 37.99991,
+    "vllm_parsed": 37.99991
+   },
+   {
+    "id": "test-34",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 10.99991,
+    "vllm_parsed": 10.99991
+   },
+   {
+    "id": "test-35",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-36",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-37",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-38",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-39",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 39.99991,
+    "vllm_parsed": 39.99991
+   },
+   {
+    "id": "test-42",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 4.0,
+    "vllm_parsed": 4.0
+   },
+   {
+    "id": "test-45",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 2.0,
+    "vllm_parsed": 2.0
+   },
+   {
+    "id": "test-53",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 4.0,
+    "vllm_parsed": 4.0
+   },
+   {
+    "id": "test-54",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 2.0,
+    "vllm_parsed": 2.0
+   },
+   {
+    "id": "test-60",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 2.0,
+    "vllm_parsed": 2.0
+   },
+   {
+    "id": "test-61",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 106.66667,
+    "vllm_parsed": 106.66667
+   },
+   {
+    "id": "test-62",
+    "tunix_reward": 0.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 60.0,
+    "vllm_parsed": 56.66667
+   },
+   {
+    "id": "test-64",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 70.0,
+    "vllm_parsed": 70.0
+   },
+   {
+    "id": "test-66",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 71.66667,
+    "vllm_parsed": 67.33333
+   },
+   {
+    "id": "test-67",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 83.33333,
+    "vllm_parsed": 83.33333
+   },
+   {
+    "id": "test-68",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 125.0,
+    "vllm_parsed": 125.0
+   },
+   {
+    "id": "test-69",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 100.0,
+    "vllm_parsed": 100.0
+   },
+   {
+    "id": "test-70",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 68.33333,
+    "vllm_parsed": 68.33333
+   },
+   {
+    "id": "test-71",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 138.66667,
+    "vllm_parsed": 141.33333
+   },
+   {
+    "id": "test-73",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 95.0,
+    "vllm_parsed": 95.0
+   },
+   {
+    "id": "test-74",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 96.66667,
+    "vllm_parsed": 96.66667
+   },
+   {
+    "id": "test-75",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 53.33333,
+    "vllm_parsed": 53.33333
+   },
+   {
+    "id": "test-76",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 107.33333,
+    "vllm_parsed": 107.33333
+   },
+   {
+    "id": "test-77",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 65.66667,
+    "vllm_parsed": 65.66667
+   },
+   {
+    "id": "test-79",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 93.33333,
+    "vllm_parsed": 93.33333
+   },
+   {
+    "id": "test-81",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 27.52564,
+    "vllm_parsed": 27.5144
+   },
+   {
+    "id": "test-83",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 28.23529,
+    "vllm_parsed": 28.23529
+   },
+   {
+    "id": "test-85",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 23.12,
+    "vllm_parsed": 23.12
+   },
+   {
+    "id": "test-86",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 23.11456,
+    "vllm_parsed": 23.10595
+   },
+   {
+    "id": "test-87",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 22.5,
+    "vllm_parsed": 22.12
+   },
+   {
+    "id": "test-89",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 20.05882,
+    "vllm_parsed": 20.05882
+   },
+   {
+    "id": "test-90",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 23.07692,
+    "vllm_parsed": 23.07692
+   },
+   {
+    "id": "test-94",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 24.51625,
+    "vllm_parsed": 24.32516
+   },
+   {
+    "id": "test-95",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 23.95,
+    "vllm_parsed": 23.92
+   },
+   {
+    "id": "test-96",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 19.05,
+    "vllm_parsed": 19.05
+   },
+   {
+    "id": "test-97",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 22.11,
+    "vllm_parsed": 22.14
+   },
+   {
+    "id": "test-99",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 18.5185185,
+    "vllm_parsed": 18.5185185
+   },
+   {
+    "id": "test-101",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": true,
+    "same_answer": true,
+    "tunix_parsed": 8.96,
+    "vllm_parsed": 8.96
+   },
+   {
+    "id": "test-126",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": -1.5,
+    "vllm_parsed": -1.5
+   },
+   {
+    "id": "test-129",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": true,
+    "same_answer": true,
+    "tunix_parsed": -1.5,
+    "vllm_parsed": -1.5
+   },
+   {
+    "id": "test-132",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 1.5,
+    "vllm_parsed": 1.5
+   },
+   {
+    "id": "test-153",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 16.95439,
+    "vllm_parsed": 17.95439
+   },
+   {
+    "id": "test-156",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 16.95439,
+    "vllm_parsed": 18.95439
+   },
+   {
+    "id": "test-158",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 27.8712,
+    "vllm_parsed": 26.95439
+   },
+   {
+    "id": "test-162",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": true,
+    "same_answer": true,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 68.65362
+   },
+   {
+    "id": "test-163",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": true,
+    "same_answer": true,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 68.65362
+   },
+   {
+    "id": "test-165",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 68.35075,
+    "vllm_parsed": 68.44444
+   },
+   {
+    "id": "test-167",
+    "tunix_reward": 1.0,
+    "vllm_reward": 1.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 46.19677855,
+    "vllm_parsed": 46.06244
+   },
+   {
+    "id": "test-169",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 68.65362
+   },
+   {
+    "id": "test-172",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": true,
+    "same_answer": true,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 68.65362
+   },
+   {
+    "id": "test-173",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": true,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 68.65362
+   },
+   {
+    "id": "test-174",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 69.50227,
+    "vllm_parsed": 69.51241
+   },
+   {
+    "id": "test-175",
+    "tunix_reward": 0.0,
+    "vllm_reward": 0.0,
+    "same_text": false,
+    "same_answer": false,
+    "tunix_parsed": 68.65362,
+    "vllm_parsed": 61.32858
+   }
+  ]
+ },
+ "sampling": {
+  "B": 64,
+  "batch": 16,
+  "first_call_s": 78.35565757751465,
+  "wall_s": 59.99588370323181,
+  "stop_string_rate": 0.140625,
+  "hit_max_tokens_rate": 0.359375,
+  "decoded_tokens": 43788,
+  "kept_tokens": 38607,
+  "kept_tok_per_s": 643.4941468812859,
+  "vllm_sampled_tok_per_s": 3000.936406755642
+ }
+}

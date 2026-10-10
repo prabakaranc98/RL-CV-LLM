@@ -1,0 +1,35 @@
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, card/.style={draw=grey300, line width=0.7pt, rounded corners=4pt, fill=white, inner xsep=7pt, inner ysep=6pt, anchor=north west, align=left}]
+\node[card] (c0) at (0,0) {\textbf{\color{ink}emerging}\\[-1pt]{\footnotesize\color{grey500}small, share rising}\\[5pt]{\color{grey700}abstract puzzles}\;{\footnotesize\color{grey500}5}\\{\color{grey700}counting}\;{\footnotesize\color{grey500}4}\\{\color{grey700}world models}\;{\footnotesize\color{grey500}3}};
+\coordinate (s0) at ([yshift=1.0cm]c0.north);
+\node[card] (c1) at ([xshift=0.3cm]c0.north east) {\textbf{\color{ink}rising fast}\\[-1pt]{\footnotesize\color{grey500}large, share rising}\\[5pt]{\color{grey700}spatial \& 3D}\;{\footnotesize\color{grey500}73}\\{\color{grey700}agents \& thinking with images}\;{\footnotesize\color{grey500}39}\\{\color{grey700}chain-of-thought}\;{\footnotesize\color{grey500}35}};
+\coordinate (s1) at ([yshift=2.7cm]c1.north);
+\node[card] (c2) at ([xshift=0.3cm]c1.north east) {\textbf{\color{ink}crowded}\\[-1pt]{\footnotesize\color{grey500}largest, share flat}\\[5pt]{\color{grey700}video \& temporal}\;{\footnotesize\color{grey500}92}\\{\color{grey700}embodied \& VLA}\;{\footnotesize\color{grey500}71}\\{\color{grey700}reasoning in generation}\;{\footnotesize\color{grey500}58}\\{\color{grey700}grounding \& referring}\;{\footnotesize\color{grey500}54}};
+\coordinate (s2) at ([yshift=3.7cm]c2.north);
+\node[card] (c3) at ([xshift=0.3cm]c2.north east) {\textbf{\color{ink}cooling}\\[-1pt]{\footnotesize\color{grey500}share fell in 2026}\\[5pt]{\color{grey700}knowledge \& commonsense}\;{\footnotesize\color{grey500}13}};
+\coordinate (s3) at ([yshift=2.3cm]c3.north);
+\node[card] (c4) at ([xshift=0.3cm]c3.north east) {\textbf{\color{ink}declining}\\[-1pt]{\footnotesize\color{grey500}share fell since 2024}\\[5pt]{\color{grey400}none}};
+\coordinate (s4) at ([yshift=0.9cm]c4.north);
+\node[card] (c5) at ([xshift=0.3cm]c4.north east) {\textbf{\color{ink}steady}\\[-1pt]{\footnotesize\color{grey500}mid-size, share flat}\\[5pt]{\color{grey700}hallucination}\;{\footnotesize\color{grey500}26}\\{\color{grey700}OCR, documents, charts}\;{\footnotesize\color{grey500}25}\\{\color{grey700}medical \& science}\;{\footnotesize\color{grey500}25}\\{\color{grey700}physical \& causal}\;{\footnotesize\color{grey500}20}\\{\color{grey700}social \& affective}\;{\footnotesize\color{grey500}11}};
+\coordinate (s5) at ([yshift=1.8cm]c5.north);
+\coordinate (s-) at ([xshift=-0.1cm, yshift=0.45cm]c0.north west);
+\coordinate (s+) at ([yshift=1.9cm]c5.north east);
+\draw[cvpr, line width=2pt] plot[smooth, tension=0.55] coordinates {(s-) (s0) (s1) (s2) (s3) (s4) (s5) (s+)};
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s0) -- (c0.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s0) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s1) -- (c1.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s1) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s2) -- (c2.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s2) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s3) -- (c3.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s3) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s4) -- (c4.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s4) circle (3.2pt);
+\draw[grey300, line width=0.6pt] ([yshift=-3.2pt]s5) -- (c5.north);
+\fill[white, draw=cvpr, line width=1.2pt] (s5) circle (3.2pt);
+\node[anchor=south west, font=\footnotesize, text=grey500] at ([yshift=3.6cm]c0.north west) {attention $\uparrow$};
+\node[anchor=north west, font=\footnotesize, text=grey500] at ([yshift=-0.3cm]current bounding box.south west) {too few papers to place (under 10, share not rising): geometry \& visual math (7), compositional reasoning (7), reasoning efficiency (1)};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,34 @@
+group,topic,n2024,n2025,n2026,per1k_2026,growth_24_26,growth_25_26,phase
+Reasoning,math reasoning,14,26,28,12.2,0.8,0.8,steady
+Reasoning,logical & symbolic,26,42,67,29.18,1.04,1.18,steady
+Reasoning,commonsense & multi-hop QA,42,48,67,29.18,0.65,1.03,declining
+Reasoning,planning,9,24,34,14.81,1.49,1.04,steady
+Reasoning,"causal, temporal & spatial",27,37,74,32.23,1.11,1.47,steady
+Reasoning,long reasoning & test-time scaling,11,35,98,42.68,3.51,2.05,rising fast
+Reasoning,reasoning efficiency & overthinking,1,2,18,7.84,5.05,5.48,emerging
+Acting,agents & tool use,43,118,309,134.58,2.91,1.93,rising fast
+Acting,"retrieval, search & RAG",50,128,187,81.45,1.52,1.08,rising fast
+Acting,code & SQL,50,102,128,55.75,1.04,0.93,crowded
+Acting,multi-agent & debate,5,26,68,29.62,5.1,1.91,emerging
+Aligning,preference alignment & reward models,45,126,183,79.7,1.65,1.07,rising fast
+Aligning,"RL post-training (RLVR, GRPO)",12,14,162,70.56,5.32,8.29,rising fast
+Aligning,safety & jailbreaks,21,59,97,42.25,1.86,1.21,rising fast
+Aligning,hallucination & factuality,38,53,86,37.46,0.92,1.2,steady
+Aligning,"evaluation, benchmarks & LLM judges",125,256,363,158.1,1.19,1.05,crowded
+Aligning,bias & fairness,14,54,46,20.03,1.31,0.63,cooling
+Understanding models,interpretability,28,46,77,33.54,1.11,1.23,steady
+Understanding models,"knowledge, memory & editing",23,40,106,46.17,1.86,1.95,rising fast
+Understanding models,uncertainty & calibration,17,31,52,22.65,1.23,1.23,steady
+Efficiency,"compression, quantization & KV cache",17,48,84,36.59,1.98,1.29,rising fast
+Efficiency,long context,18,47,41,17.86,0.92,0.65,cooling
+Language & society,multilingual & translation,81,109,115,50.09,0.58,0.78,declining
+Language & society,"culture, values & social",16,70,60,26.13,1.5,0.64,cooling
+Language & society,"dialogue, persona & role-play",44,87,112,48.78,1.04,0.95,crowded
+Language & society,creativity & writing,17,14,36,15.68,0.85,1.86,steady
+Language & society,diversity & homogenization,4,9,12,5.23,1.14,0.97,steady
+Domains,medical & clinical,8,35,57,24.83,2.77,1.2,emerging
+Domains,"legal, finance & education",16,32,41,17.86,1.03,0.94,steady
+Multimodal,vision-language,95,199,304,132.4,1.31,1.13,crowded
+Multimodal,speech & audio,38,52,79,34.41,0.85,1.12,steady
+Data,synthetic data & data selection,19,38,28,12.2,0.6,0.55,declining
+Data,distillation,13,25,30,13.07,0.92,0.89,steady

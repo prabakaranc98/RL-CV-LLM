@@ -1,0 +1,17 @@
+% The four models held in memory during PPO-based RLHF.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, card/.style={block, minimum width=5.6cm, minimum height=1.7cm, text width=5.2cm, align=left, inner sep=7pt}]
+  \node[font=\small\bfseries, text=grey500, anchor=east] at (-0.4,0) {trained};
+  \node[font=\small\bfseries, text=grey500, anchor=east] at (-0.4,-2.3) {frozen};
+  \node[card, accent, fill=ferntint, anchor=west] (act) at (0,0)
+    {\textbf{Policy (actor)} $\pi_\theta$\\[2pt]{\footnotesize writes the responses; updated with the clipped objective}};
+  \node[card, anchor=west] (cri) at (6.2,0)
+    {\textbf{Value model (critic)} $V_\psi$\\[2pt]{\footnotesize predicts the return for every prefix; often initialized from the reward model}};
+  \node[card, fill=grey100, anchor=west] (rm) at (0,-2.3)
+    {\textbf{Reward model} $r_\phi$\\[2pt]{\footnotesize scores a complete response; trained earlier on human comparisons}};
+  \node[card, fill=grey100, anchor=west] (ref) at (6.2,-2.3)
+    {\textbf{Reference model} $\pi_{\mathrm{ref}}$\\[2pt]{\footnotesize a frozen copy of the SFT model; used for the KL penalty}};
+\end{tikzpicture}
+\end{document}

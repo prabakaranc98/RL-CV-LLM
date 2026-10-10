@@ -1,0 +1,40 @@
+% Two ways to place generation and training on GPUs: time-share the same devices, or split them into pools.
+\documentclass[border=8pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+    gpu/.style={draw=grey500, line width=0.7pt, fill=white, rounded corners=2pt, minimum size=0.6cm, inner sep=0pt},
+    gpua/.style={gpu, draw=fern, line width=1pt},
+    phase/.style={block, minimum height=0.62cm, font=\footnotesize, inner sep=3pt},
+    ptitle/.style={font=\small\bfseries, anchor=west}]
+  % ============ colocated ============
+  \node[ptitle] at (0,1.0) {Colocated: the same GPUs take turns};
+  \foreach \c in {0,...,7} \node[gpu] (cg\c) at ({0.4+\c*0.72},-1.6) {};
+  \node[phase, frozen, minimum width=2.4cm] (p1) at (1.35,-0.3) {generate};
+  \node[phase, blocka, minimum width=2.0cm] (p2) at (3.85,-0.3) {train};
+  \node[phase, frozen, minimum width=1.2cm] (p3) at (5.6,-0.3) {gen\dots};
+  \draw[flow] (p1) -- (p2); \draw[flow] (p2) -- (p3);
+  \draw[grey400, line width=0.6pt, decorate, decoration={brace, mirror, amplitude=5pt}] ($(cg0.south west)+(0,-0.12)$) -- ($(cg7.south east)+(0,-0.12)$)
+    node[midway, below=7pt, dims] {one pool: generation and training share the GPUs};
+  \mk{(-0.3,-0.3)}{1};
+  % ============ disaggregated ============
+  \begin{scope}[xshift=7.6cm]
+  \node[ptitle] at (0,1.0) {Separate pools: two jobs run side by side};
+  \foreach \c in {0,...,3} \node[gpu] (rg\c) at ({0.4+\c*0.72},-1.6) {};
+  \foreach \c in {0,...,3} \node[gpua] (tg\c) at ({4.6+\c*0.72},-1.6) {};
+  \node[phase, frozen, minimum width=2.5cm] (ro) at (1.48,-0.3) {rollout engine};
+  \node[phase, blocka, minimum width=2.5cm] (tr) at (5.68,-0.3) {trainer};
+  \draw[flow] ($(ro.east)+(0,0.13)$) -- node[above, dims] {samples} ($(tr.west)+(0,0.13)$);
+  \draw[flowa] ($(tr.west)+(0,-0.13)$) -- node[below, accentnote] {weights} ($(ro.east)+(0,-0.13)$);
+  \draw[grey400, line width=0.6pt, decorate, decoration={brace, mirror, amplitude=5pt}] ($(rg0.south west)+(0,-0.12)$) -- ($(rg3.south east)+(0,-0.12)$)
+    node[midway, below=7pt, dims] {inference GPUs};
+  \draw[grey400, line width=0.6pt, decorate, decoration={brace, mirror, amplitude=5pt}] ($(tg0.south west)+(0,-0.12)$) -- ($(tg3.south east)+(0,-0.12)$)
+    node[midway, below=7pt, dims] {training GPUs};
+  \mka{(-0.3,-0.3)}{2};
+  \end{scope}
+  % notes
+  \notesat{(16.4,1.25)}{5.6cm}
+  \note{1}{No GPU waits for another role, but the phases alternate and the policy's weights must be re-laid out between the inference and training engines at every switch.}
+  \notea{2}{Each side runs software tuned for its job, and the two can overlap in time; it needs a fast path for weight updates, and one side idles unless training is asynchronous.}
+\end{tikzpicture}
+\end{document}

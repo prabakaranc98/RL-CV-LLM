@@ -1,0 +1,16 @@
+\documentclass[border=10pt]{standalone}
+\input{pt-style}
+\begin{document}
+\begin{tikzpicture}[remember picture]
+\node[font=\LARGE, inner sep=0, anchor=base west] (eq) at (0,0) {$
+  \tm{L}{L^{\mathrm{CLIP}}(\theta)} \;=\; \tm{E}{\hat{\mathbb{E}}_t}\Big[\,
+  \tm{min}{\min}\big(\,\tm{u}{\rho_t(\theta)\,\hat A_t}\,,\;
+  \tm{c}{\color{fern}\operatorname{clip}\!\big(\rho_t(\theta),\,1-\varepsilon,\,1+\varepsilon\big)\,\hat A_t}\,\big)\Big]
+$};
+\ann{L}{a}{1}{0}{surrogate objective, maximized\\for a few epochs on each batch};
+\ann{min}{a}{2}{0}{the smaller (more pessimistic) of the two terms};
+\anna{c}{a}{1}{0.3}{the same term with $\rho_t$ limited to\\$[1-\varepsilon,\,1+\varepsilon]$; typically $\varepsilon = 0.2$};
+\ann{E}{b}{1}{-0.4}{average over the time\\steps (tokens) in the batch};
+\ann{u}{b}{1}{0.5}{importance-weighted\\advantage, unclipped};
+\end{tikzpicture}
+\end{document}
